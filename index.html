@@ -5,12 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>UnifiedGarage — The Modern Dealer Management System</title>
 <meta name="description" content="UnifiedGarage is the all-in-one DMS built for modern dealerships. Manage inventory, deals, F&I, service, and customer relationships from a single platform."/>
+<link rel="canonical" href="https://unifiedgarage.com/"/>
+
+<!-- Favicon (inline SVG: "U" on brand-yellow tile) -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFB800'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%231A1A1A'%3EU%3C/text%3E%3C/svg%3E"/>
+
+<!-- Open Graph -->
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="UnifiedGarage"/>
+<meta property="og:title" content="UnifiedGarage — The Modern Dealer Management System"/>
+<meta property="og:description" content="All-in-one DMS for modern dealerships. Inventory, deals, F&I, service, CRM, accounting, and a customer portal — unified."/>
+<meta property="og:url" content="https://unifiedgarage.com/"/>
+<meta property="og:image" content="https://unifiedgarage.com/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="UnifiedGarage — The Modern Dealer Management System"/>
+<meta name="twitter:description" content="All-in-one DMS for modern dealerships. Inventory, deals, F&I, service, CRM, accounting, and a customer portal — unified."/>
+<meta name="twitter:image" content="https://unifiedgarage.com/og-image.png"/>
+
+<!-- Theme color (mobile browser chrome) -->
+<meta name="theme-color" content="#FFB800"/>
+
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+<!-- JSON-LD structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "UnifiedGarage",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "All-in-one Dealer Management System for modern dealerships: inventory, deals, F&I, service, CRM, accounting, and customer portal.",
+  "url": "https://unifiedgarage.com/",
+  "publisher": {
+    "@type": "Organization",
+    "name": "UnifiedGarage",
+    "url": "https://unifiedgarage.com/",
+    "email": "hello@unifiedgarage.com"
+  },
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD",
+    "availability": "https://schema.org/PreOrder",
+    "description": "Free trial during beta"
+  }
+}
+</script>
+
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
   body{font-family:'Inter',sans-serif;color:#1A1A1A;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  /* Skip link for keyboard/screen-reader users */
+  .skip-link{position:absolute;left:-9999px;top:0;background:#1A1A1A;color:#fff;padding:8px 12px;z-index:1000;text-decoration:none;border-radius:0 0 6px 0}
+  .skip-link:focus{left:0}
 
   /* NAV */
   nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #eee;padding:0 24px}
@@ -87,7 +143,7 @@
   .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
   .footer-logo{font-weight:800;font-size:16px}
   .footer-logo span{color:#FFB800}
-  .footer-links{display:flex;gap:20px}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
   .footer-links a{font-size:13px;color:#888;text-decoration:none}
   .footer-links a:hover{color:#1A1A1A}
   .footer-copy{font-size:12px;color:#aaa}
@@ -103,8 +159,10 @@
 </head>
 <body>
 
+<a href="#main" class="skip-link">Skip to content</a>
+
 <!-- NAV -->
-<nav>
+<nav aria-label="Primary">
   <div class="nav-inner">
     <a href="https://unifiedgarage.com" class="nav-logo">Unified<span>Garage</span></a>
     <div class="nav-links">
@@ -116,6 +174,8 @@
   </div>
 </nav>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-badge">&#9889; Now in Beta</div>
@@ -125,7 +185,7 @@
     <a href="https://app.unifiedgarage.com/signup" class="btn btn-primary btn-lg">Start Free Trial</a>
     <a href="#features" class="btn btn-outline btn-lg">See Features</a>
   </div>
-  <div class="hero-visual">
+  <div class="hero-visual" aria-hidden="true">
     <div class="hero-mockup">
       <div class="mockup-bar">
         <div class="mockup-dot" style="background:#FF5F57"></div>
@@ -184,47 +244,47 @@
     </div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon" style="background:#FFF3D0">&#128663;</div>
+        <div class="feature-icon" style="background:#FFF3D0" aria-hidden="true">&#128663;</div>
         <h3>Inventory Management</h3>
         <p>Track every unit from acquisition to delivery. Bulk operations, aging alerts, and automatic pricing tools built in.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#DBEAFE">&#128196;</div>
+        <div class="feature-icon" style="background:#DBEAFE" aria-hidden="true">&#128196;</div>
         <h3>Deal Desking &amp; F&amp;I</h3>
         <p>Structure deals, calculate payments, and manage the full pipeline from lead to funded &mdash; in minutes, not hours.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#DCFCE7">&#128736;</div>
+        <div class="feature-icon" style="background:#DCFCE7" aria-hidden="true">&#128736;</div>
         <h3>Service Department</h3>
         <p>Repair orders, technician assignments, parts tracking, and customer approvals. Integrated, not bolted on.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#F3E8FF">&#128101;</div>
+        <div class="feature-icon" style="background:#F3E8FF" aria-hidden="true">&#128101;</div>
         <h3>CRM &amp; Lead Management</h3>
         <p>Auto-assign leads round-robin, track every touchpoint, and never let a hot prospect fall through the cracks.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#FEE2E2">&#128202;</div>
+        <div class="feature-icon" style="background:#FEE2E2" aria-hidden="true">&#128202;</div>
         <h3>Analytics &amp; Reporting</h3>
         <p>Sales velocity, inventory aging, service utilization, lead conversion funnels &mdash; real-time dashboards, not stale spreadsheets.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#E0F2FE">&#127760;</div>
+        <div class="feature-icon" style="background:#E0F2FE" aria-hidden="true">&#127760;</div>
         <h3>Customer Portal</h3>
         <p>Self-service for your customers: view service history, access documents, book appointments, and track their vehicles.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#FFF3D0">&#128176;</div>
+        <div class="feature-icon" style="background:#FFF3D0" aria-hidden="true">&#128176;</div>
         <h3>Accounting &amp; GL</h3>
         <p>Deal posting, journal entries, monthly close workflows, and a full chart of accounts &mdash; purpose-built for dealership accounting.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#F1F5F9">&#128274;</div>
+        <div class="feature-icon" style="background:#F1F5F9" aria-hidden="true">&#128274;</div>
         <h3>Multi-Rooftop &amp; Roles</h3>
         <p>Dealer groups with shared customers, granular role-based access, and per-rooftop configuration. Scale with confidence.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" style="background:#DCFCE7">&#128221;</div>
+        <div class="feature-icon" style="background:#DCFCE7" aria-hidden="true">&#128221;</div>
         <h3>Trade-In Appraisals</h3>
         <p>Structured appraisal workflow with condition grading, multiple book values, manager approval, and deal attachment.</p>
       </div>
@@ -233,7 +293,7 @@
 </section>
 
 <!-- STATS -->
-<section class="stats">
+<section class="stats" aria-label="Platform highlights">
   <div class="stats-grid">
     <div><div class="stat-num">9</div><div class="stat-label">Core Modules</div></div>
     <div><div class="stat-num">50+</div><div class="stat-label">API Endpoints</div></div>
@@ -251,17 +311,17 @@
     </div>
     <div class="steps">
       <div class="step">
-        <div class="step-num">1</div>
+        <div class="step-num" aria-hidden="true">1</div>
         <h3>Sign up &amp; configure</h3>
         <p>Create your dealership account, invite your team, set up roles and permissions.</p>
       </div>
       <div class="step">
-        <div class="step-num">2</div>
+        <div class="step-num" aria-hidden="true">2</div>
         <h3>Import your data</h3>
         <p>Bring your inventory, customers, and history from your old system with our import tools.</p>
       </div>
       <div class="step">
-        <div class="step-num">3</div>
+        <div class="step-num" aria-hidden="true">3</div>
         <h3>Go live</h3>
         <p>Start desking deals, writing ROs, and managing leads from day one. Your customers get their portal instantly.</p>
       </div>
@@ -279,13 +339,14 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
     <div class="footer-logo">Unified<span>Garage</span></div>
     <div class="footer-links">
       <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
       <a href="https://docs.unifiedgarage.com">Docs</a>
       <a href="mailto:support@unifiedgarage.com">Support</a>
       <a href="/privacy">Privacy</a>
