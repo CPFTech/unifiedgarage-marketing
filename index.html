@@ -3,18 +3,18 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>UnifiedGarage — The Modern Dealer Management System</title>
-<meta name="description" content="UnifiedGarage is the DMS built for dealers, not tech companies. Inventory, recon, deals, F&I, service, and the showroom floor — all in one screen. Replace seven legacy tools with one."/>
+<title>UnifiedGarage — One workspace for the whole dealership</title>
+<meta name="description" content="UnifiedGarage is the modern dealer management system. Replace seven disconnected tools with one quiet, fast, well-designed platform. Inventory, deals, F&I, service, CRM, and accounting — finally talking to each other."/>
 <link rel="canonical" href="https://unifiedgarage.com/"/>
 
-<!-- Favicon (inline SVG: "U" on brand-yellow tile) -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFB800'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%231A1A1A'%3EU%3C/text%3E%3C/svg%3E"/>
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2309090B'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%23FFB800'%3EU%3C/text%3E%3C/svg%3E"/>
 
 <!-- Open Graph -->
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="UnifiedGarage"/>
-<meta property="og:title" content="UnifiedGarage — The Modern Dealer Management System"/>
-<meta property="og:description" content="One screen for the whole store. Inventory, recon, deals, F&I, service, and CRM — built for dealers, not tech companies."/>
+<meta property="og:title" content="UnifiedGarage — One workspace for the whole dealership"/>
+<meta property="og:description" content="Modern DMS for dealers. Inventory, deals, F&I, service, CRM, accounting — all in one quiet, fast workspace."/>
 <meta property="og:url" content="https://unifiedgarage.com/"/>
 <meta property="og:image" content="https://unifiedgarage.com/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
@@ -22,18 +22,15 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="UnifiedGarage — The Modern Dealer Management System"/>
-<meta name="twitter:description" content="One screen for the whole store. Inventory, recon, deals, F&I, service, and CRM — built for dealers, not tech companies."/>
+<meta name="twitter:title" content="UnifiedGarage — One workspace for the whole dealership"/>
+<meta name="twitter:description" content="Modern DMS for dealers. Inventory, deals, F&I, service, CRM, accounting — all in one quiet, fast workspace."/>
 <meta name="twitter:image" content="https://unifiedgarage.com/og-image.png"/>
 
-<!-- Theme color (mobile browser chrome) -->
-<meta name="theme-color" content="#FFB800"/>
+<meta name="theme-color" content="#FAFAFA"/>
 
-<!-- PostHog analytics. To enable: replace REPLACE_WITH_YOUR_KEY with your
-     project API key from https://app.posthog.com/project/settings (safe to
-     expose - it's a public client key). Leave the EU host if your project
-     is in the EU region. The wrapper short-circuits if the placeholder is
-     still in place, so this is safe to commit unchanged. -->
+<!-- PostHog analytics. Replace phc_REPLACE_WITH_YOUR_KEY with your
+     project API key from https://app.posthog.com/project/settings. The
+     wrapper short-circuits on the placeholder so this is safe to commit. -->
 <script>
 (function(){
   var KEY = 'phc_REPLACE_WITH_YOUR_KEY';
@@ -45,9 +42,9 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 
-<!-- JSON-LD structured data -->
+<!-- JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -55,189 +52,306 @@
   "name": "UnifiedGarage",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
-  "description": "Dealer Management System for modern dealerships. Inventory, recon, deals, F&I, service, CRM, accounting, and a customer portal in a single screen.",
+  "description": "Dealer Management System for modern dealerships. Inventory, deals, F&I, service, CRM, accounting, and customer portal in a single quiet workspace.",
   "url": "https://unifiedgarage.com/",
-  "publisher": {
-    "@type": "Organization",
-    "name": "UnifiedGarage",
-    "url": "https://unifiedgarage.com/",
-    "email": "hello@unifiedgarage.com"
-  },
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD",
-    "availability": "https://schema.org/PreOrder",
-    "description": "Free during beta"
-  }
+  "publisher": { "@type": "Organization", "name": "UnifiedGarage", "url": "https://unifiedgarage.com/", "email": "hello@unifiedgarage.com" },
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD", "availability": "https://schema.org/PreOrder", "description": "Free during beta" }
 }
 </script>
 
 <style>
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{font-family:'Inter',sans-serif;color:#1A1A1A;background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased}
+  /* ─── Design tokens (Direction C) ─────────────────────────────── */
+  :root {
+    --bg:        #FAFAFA;
+    --bg-pure:   #FFFFFF;
+    --text:      #09090B;
+    --text-mute: #52525B;
+    --text-dim:  #A1A1AA;
+    --border:    #E4E4E7;
+    --border-lt: #F4F4F5;
+    --accent:    #FFB800;
+    --accent-h:  #F0AE00;
+    --success:   #16A34A;
+    --warn:      #D97706;
+    --radius:    8px;
+  }
 
-  /* Skip link for keyboard/screen-reader users */
-  .skip-link{position:absolute;left:-9999px;top:0;background:#1A1A1A;color:#fff;padding:8px 12px;z-index:1000;text-decoration:none;border-radius:0 0 6px 0}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    font-weight:400;
+  }
+
+  .skip-link{position:absolute;left:-9999px;top:0;background:var(--text);color:#fff;padding:8px 12px;z-index:1000;text-decoration:none;border-radius:0 0 6px 0;font-size:13px}
   .skip-link:focus{left:0}
 
-  /* NAV */
-  nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #eee;padding:0 24px}
-  .nav-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-  .nav-logo{font-weight:800;font-size:20px;color:#1A1A1A;text-decoration:none}
-  .nav-logo span{color:#FFB800}
-  .nav-links{display:flex;gap:28px;align-items:center}
-  .nav-links a{font-size:14px;font-weight:500;color:#555;text-decoration:none;transition:color .2s}
-  .nav-links a:hover{color:#1A1A1A}
-  .btn{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:8px;font-size:14px;font-weight:600;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
-  .btn-primary{background:#FFB800;color:#1A1A1A}
-  .btn-primary:hover{background:#E5A600;transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,184,0,0.3)}
-  .btn-outline{background:transparent;color:#1A1A1A;border:2px solid #E5E5E5}
-  .btn-outline:hover{border-color:#1A1A1A}
-  .btn-dark{background:#1A1A1A;color:#fff}
-  .btn-dark:hover{background:#333;transform:translateY(-1px)}
-  .btn-lg{padding:14px 32px;font-size:16px;border-radius:10px}
+  /* ─── NAV ─────────────────────────────────────────────────────── */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(250,250,250,0.85);
+    backdrop-filter:blur(12px) saturate(180%);
+    -webkit-backdrop-filter:blur(12px) saturate(180%);
+    border-bottom:1px solid var(--border-lt);
+    padding:0 24px;
+  }
+  .nav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:60px}
+  .nav-logo{font-weight:700;font-size:15px;color:var(--text);text-decoration:none;letter-spacing:-0.02em;display:flex;align-items:center;gap:9px}
+  .nav-logo-tile{width:22px;height:22px;background:var(--text);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--accent);font-size:12px;font-weight:800}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{font-size:13px;font-weight:500;color:var(--text-mute);text-decoration:none;transition:color .15s}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;gap:6px;padding:7px 14px;border-radius:6px;font-size:13px;font-weight:500;text-decoration:none;transition:all .15s;cursor:pointer;border:1px solid transparent;white-space:nowrap}
+  .btn-primary{background:var(--accent);color:var(--text);font-weight:600}
+  .btn-primary:hover{background:var(--accent-h)}
+  .btn-ghost{color:var(--text);border-color:var(--border)}
+  .btn-ghost:hover{border-color:var(--text)}
+  .btn-dark{background:var(--text);color:var(--bg-pure)}
+  .btn-dark:hover{background:#1f1f23}
+  .btn-lg{padding:10px 20px;font-size:14px;border-radius:7px}
 
-  /* HERO */
-  .hero{padding:140px 24px 80px;text-align:center;background:
-    radial-gradient(1200px 600px at 50% -100px, rgba(255,184,0,0.18) 0%, transparent 60%),
-    linear-gradient(180deg,#FFFBEB 0%,#fff 100%)}
-  .hero-badge{display:inline-flex;align-items:center;gap:8px;background:#1A1A1A;color:#FFB800;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:7px 14px;border-radius:20px;margin-bottom:20px}
-  .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#FFB800;box-shadow:0 0 0 3px rgba(255,184,0,0.2)}
-  .hero h1{font-size:clamp(36px,5vw,56px);font-weight:800;line-height:1.05;margin-bottom:18px;letter-spacing:-1.5px}
-  .hero h1 span{color:#FFB800}
-  .hero p{font-size:18px;color:#555;max-width:620px;margin:0 auto 32px}
-  .hero-ctas{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center}
-  .hero-trust{margin-top:18px;font-size:13px;color:#888;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
-  .hero-trust span{display:inline-flex;align-items:center;gap:5px}
-  .hero-trust svg{flex-shrink:0}
+  /* ─── HERO with layered graphic ───────────────────────────────── */
+  .hero{
+    position:relative;
+    padding:140px 24px 80px;
+    overflow:hidden;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
 
-  /* HERO MOCKUP — styled to look like a real DMS dashboard */
-  .hero-visual{max-width:1000px;margin:56px auto 0;border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,0.18);border:1px solid rgba(0,0,0,0.08)}
-  .hero-mockup{background:#0B1220;padding:18px;position:relative}
-  .mockup-bar{height:24px;display:flex;gap:6px;align-items:center;margin-bottom:14px}
-  .mockup-dot{width:11px;height:11px;border-radius:50%}
-  .mockup-url{flex:1;margin-left:12px;background:#111827;border-radius:6px;padding:4px 10px;font-size:11px;color:#94A3B8;display:flex;align-items:center;gap:6px;font-family:ui-monospace,Menlo,monospace}
-  .mockup-url svg{color:#10B981}
-  .mockup-grid{display:grid;grid-template-columns:180px 1fr;gap:14px}
-  .mockup-sidebar{background:#0F172A;border-radius:10px;padding:14px 10px;display:flex;flex-direction:column;gap:4px;min-height:460px}
-  .mockup-brand{display:flex;align-items:center;gap:8px;padding:4px 8px 12px;border-bottom:1px solid #1F2937;margin-bottom:8px}
-  .mockup-brand-tile{width:22px;height:22px;border-radius:5px;background:#FFB800;display:flex;align-items:center;justify-content:center;color:#111;font-weight:800;font-size:13px}
-  .mockup-brand-name{color:#F3F4F6;font-weight:700;font-size:12px}
-  .mockup-brand-name span{color:#FFB800}
-  .nav-row{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:6px;color:#94A3B8;font-size:12px;font-weight:500}
-  .nav-row.active{background:rgba(255,184,0,0.12);color:#FFB800}
-  .nav-row svg{opacity:0.8}
-  .mockup-content{background:#0F172A;border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:14px}
-  .mockup-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-  .kpi{background:#1E293B;border-radius:8px;padding:11px 12px;border:1px solid #273244}
-  .kpi-label{font-size:10px;color:#94A3B8;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:4px}
-  .kpi-value{font-size:18px;color:#F3F4F6;font-weight:700;line-height:1.1}
-  .kpi-delta{font-size:10px;color:#10B981;margin-top:2px;font-weight:600}
-  .kpi-delta.down{color:#EF4444}
-  .mockup-panels{display:grid;grid-template-columns:1.3fr 1fr;gap:10px;min-height:200px}
-  .panel{background:#1E293B;border-radius:8px;padding:12px;border:1px solid #273244}
-  .panel-title{font-size:11px;font-weight:700;color:#F3F4F6;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
-  .panel-title .tag{background:#FFB800;color:#111;font-size:9px;padding:2px 6px;border-radius:4px;font-weight:700;letter-spacing:0.04em}
-  .inv-row{display:grid;grid-template-columns:44px 1fr auto;gap:10px;padding:6px 0;border-bottom:1px solid #273244;align-items:center}
-  .inv-row:last-child{border-bottom:none}
-  .inv-thumb{width:44px;height:28px;background:linear-gradient(135deg,#334155,#475569);border-radius:4px;position:relative;overflow:hidden}
-  .inv-thumb::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent 40%,rgba(255,255,255,0.08) 50%,transparent 60%)}
-  .inv-meta{font-size:10px;color:#CBD5E1;line-height:1.3}
-  .inv-meta strong{color:#F3F4F6;font-size:11px;font-weight:700;display:block}
-  .inv-price{font-size:11px;font-weight:700;color:#FFB800;text-align:right}
-  .inv-aged{font-size:9px;color:#94A3B8;display:block;font-weight:500}
-  .inv-aged.hot{color:#EF4444}
-  .pipeline-row{display:flex;align-items:center;gap:6px;padding:6px 0;font-size:10px;color:#CBD5E1}
-  .pipeline-row:not(:last-child){border-bottom:1px solid #273244}
-  .stage-pill{padding:2px 7px;border-radius:10px;font-size:9px;font-weight:700;white-space:nowrap}
-  .stage-lead{background:#1E3A8A;color:#93C5FD}
-  .stage-desk{background:#78350F;color:#FDE68A}
-  .stage-fi{background:#581C87;color:#E9D5FF}
-  .stage-funded{background:#14532D;color:#86EFAC}
-  .pipe-name{flex:1;color:#F3F4F6;font-weight:600;font-size:11px}
-  .pipe-gross{color:#FFB800;font-weight:700}
+  /* Layer 1: soft mesh gradient — three blurred radial gradients */
+  .hero-mesh{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(600px 400px at 10% 20%,  rgba(255,184,0,0.10), transparent 60%),
+      radial-gradient(500px 500px at 90% 10%,  rgba(147,197,253,0.15), transparent 60%),
+      radial-gradient(700px 500px at 80% 90%,  rgba(252,211,77,0.08), transparent 65%),
+      radial-gradient(400px 400px at 20% 80%,  rgba(167,139,250,0.10), transparent 60%);
+    pointer-events:none;
+  }
 
-  /* LOGO BAR */
-  .logo-strip{padding:32px 24px 0;background:#fff}
-  .logo-strip-inner{max-width:1000px;margin:0 auto;text-align:center}
-  .logo-strip p{font-size:12px;font-weight:600;letter-spacing:0.12em;color:#999;text-transform:uppercase;margin-bottom:18px}
-  .logo-strip-row{display:flex;justify-content:center;gap:40px;flex-wrap:wrap;align-items:center;opacity:0.55}
-  .logo-strip-row span{font-family:Georgia,serif;font-weight:700;font-size:16px;color:#666;letter-spacing:-0.5px}
+  /* Layer 2: blueprint-style grid lines */
+  .hero-grid{
+    position:absolute;inset:0;
+    background-image:
+      linear-gradient(to right,  rgba(9,9,11,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(9,9,11,0.04) 1px, transparent 1px);
+    background-size:80px 80px;
+    mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 100%);
+    -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 50%, #000 40%, transparent 100%);
+    pointer-events:none;
+  }
 
-  /* FEATURES */
-  .features{padding:80px 24px;background:#FAFAFA}
-  .section-inner{max-width:1100px;margin:0 auto}
-  .section-header{text-align:center;margin-bottom:48px}
-  .section-header .eyebrow{display:inline-block;background:#FFF3D0;color:#92400E;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:4px 12px;border-radius:12px;margin-bottom:14px}
-  .section-header h2{font-size:36px;font-weight:800;margin-bottom:10px;letter-spacing:-0.5px;line-height:1.1}
-  .section-header p{font-size:17px;color:#555;max-width:560px;margin:0 auto}
-  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-  .feature-card{background:#fff;border:1px solid #E5E5E5;border-radius:14px;padding:28px;transition:all .2s}
-  .feature-card:hover{border-color:#FFB800;box-shadow:0 8px 24px rgba(255,184,0,0.08);transform:translateY(-2px)}
-  .feature-icon{width:44px;height:44px;border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:18px;background:#FFF3D0;color:#92400E}
-  .feature-icon svg{width:22px;height:22px}
-  .feature-card h3{font-size:17px;font-weight:700;margin-bottom:8px}
-  .feature-card p{font-size:14px;color:#555;line-height:1.6}
+  /* Layer 3: overlapping floating UI fragments — the literal
+     metaphor for "one workspace for the whole dealership". Each
+     card is a tiny slice of what a dealer would see in a different
+     tool. The stack behind the headline represents them fusing. */
+  .hero-cards{position:absolute;inset:0;pointer-events:none;z-index:1}
+  .frag{
+    position:absolute;
+    background:var(--bg-pure);
+    border:1px solid var(--border);
+    border-radius:10px;
+    padding:12px 14px;
+    box-shadow:0 10px 30px -10px rgba(9,9,11,0.08), 0 2px 6px rgba(9,9,11,0.04);
+    font-size:11px;
+    backdrop-filter:blur(4px);
+    opacity:0.95;
+  }
+  .frag-label{font-size:9px;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-dim);font-weight:600;margin-bottom:4px}
+  .frag-val{font-size:14px;font-weight:700;color:var(--text);line-height:1.1}
+  .frag-val .delta{font-size:10px;color:var(--success);font-weight:500;margin-left:4px}
+  .frag-val .delta.down{color:var(--warn)}
+  .frag-sub{font-size:10px;color:var(--text-mute);margin-top:2px}
 
-  /* STATS */
-  .stats{padding:80px 24px;background:#1A1A1A;color:#fff;position:relative;overflow:hidden}
-  .stats::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,#FFB800,transparent)}
-  .stats-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1}
-  .stats-header{text-align:center;margin-bottom:40px}
-  .stats-header h2{font-size:30px;font-weight:800;margin-bottom:8px;letter-spacing:-0.5px}
-  .stats-header p{color:#AAA;font-size:15px;max-width:500px;margin:0 auto}
-  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
-  .stat-num{font-size:44px;font-weight:800;color:#FFB800;line-height:1;letter-spacing:-1px}
-  .stat-num .unit{font-size:20px;color:#AAA;margin-left:2px;font-weight:700}
-  .stat-label{font-size:13px;color:#AAA;margin-top:8px;line-height:1.4}
+  /* Position each fragment around the headline */
+  .frag-kpi1  {top:14%; left:8%;   width:160px; transform:rotate(-4deg)}
+  .frag-kpi2  {top:20%; right:9%;  width:170px; transform:rotate(3deg)}
+  .frag-ro    {top:58%; left:5%;   width:180px; transform:rotate(-2deg)}
+  .frag-inv   {top:64%; right:6%;  width:200px; transform:rotate(2deg)}
+  .frag-deal  {top:32%; right:18%; width:150px; transform:rotate(-3deg); opacity:0.75}
+  .frag-tech  {bottom:12%; left:22%; width:170px; transform:rotate(-1deg); opacity:0.85}
+  @media(max-width:900px){
+    .frag-kpi1,.frag-kpi2,.frag-ro,.frag-inv,.frag-deal,.frag-tech{display:none}
+  }
 
-  /* FOR-EVERY-ROLE SECTION */
-  .roles{padding:80px 24px;background:#fff}
-  .roles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:32px}
-  .role-card{padding:22px;border-radius:12px;background:#FAFAFA;border:1px solid #EEE;transition:all .2s}
-  .role-card:hover{border-color:#FFB800;background:#FFFBEB}
-  .role-card h4{font-size:15px;font-weight:700;margin-bottom:6px}
-  .role-card p{font-size:13px;color:#666;line-height:1.5}
-  .role-emoji{display:inline-flex;width:32px;height:32px;border-radius:8px;background:#FFB800;color:#1A1A1A;align-items:center;justify-content:center;margin-bottom:12px}
-  .role-emoji svg{width:16px;height:16px}
+  /* Inventory mini-row inside a fragment */
+  .frag .inv-row{display:grid;grid-template-columns:28px 1fr auto;gap:8px;padding:3px 0;align-items:center}
+  .frag .inv-row:not(:last-child){border-bottom:1px solid var(--border-lt)}
+  .frag .inv-thumb{width:28px;height:18px;background:linear-gradient(135deg,#CBD5E1,#94A3B8);border-radius:3px}
+  .frag .inv-meta{font-size:9px;line-height:1.25}
+  .frag .inv-meta b{color:var(--text);font-weight:600;display:block;font-size:10px}
+  .frag .inv-meta span{color:var(--text-dim)}
+  .frag .inv-price{font-size:10px;color:var(--text);font-weight:700;text-align:right}
 
-  /* HOW IT WORKS */
-  .how{padding:80px 24px;background:#FAFAFA}
-  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:48px}
-  .step{text-align:center;padding:24px;background:#fff;border-radius:12px;border:1px solid #EEE}
-  .step-num{width:48px;height:48px;border-radius:50%;background:#FFB800;color:#1A1A1A;font-weight:800;font-size:20px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px;box-shadow:0 6px 16px rgba(255,184,0,0.3)}
-  .step h3{font-size:16px;font-weight:700;margin-bottom:8px}
-  .step p{font-size:14px;color:#555;line-height:1.5}
+  /* Deal stage pill */
+  .stage-pill{display:inline-block;padding:2px 8px;border-radius:100px;font-size:9px;font-weight:600}
+  .stage-pill.fi{background:#F3E8FF;color:#6B21A8}
+  .stage-pill.funded{background:#DCFCE7;color:#166534}
 
-  /* CTA */
-  .cta-section{padding:90px 24px;text-align:center;background:
-    radial-gradient(800px 400px at 50% 100%, rgba(255,184,0,0.15) 0%, transparent 60%),
-    linear-gradient(180deg,#fff 0%,#FFFBEB 100%)}
-  .cta-section h2{font-size:36px;font-weight:800;margin-bottom:14px;letter-spacing:-0.5px}
-  .cta-section p{font-size:17px;color:#555;margin-bottom:28px;max-width:500px;margin-left:auto;margin-right:auto}
-  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  /* Hero content — sits above the graphic */
+  .hero-inner{position:relative;z-index:2;max-width:720px;text-align:center}
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--bg-pure);border:1px solid var(--border);
+    font-size:12px;font-weight:500;color:var(--text-mute);
+    padding:5px 12px;border-radius:100px;margin-bottom:28px;
+    box-shadow:0 1px 3px rgba(9,9,11,0.04);
+  }
+  .hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--success);box-shadow:0 0 0 3px rgba(22,163,74,0.15)}
+  .hero h1{
+    font-size:clamp(40px, 6.5vw, 72px);
+    font-weight:800;
+    line-height:1.02;
+    letter-spacing:-0.045em;
+    margin-bottom:22px;
+    color:var(--text);
+  }
+  .hero h1 span{color:var(--text-dim);font-weight:400;letter-spacing:-0.035em}
+  .hero p.lede{
+    font-size:18px;
+    color:var(--text-mute);
+    max-width:560px;
+    margin:0 auto 32px;
+    font-weight:400;
+    line-height:1.55;
+  }
+  .hero-ctas{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .hero-trust{
+    margin-top:24px;
+    font-size:13px;color:var(--text-dim);
+    display:flex;gap:20px;justify-content:center;flex-wrap:wrap;font-weight:400;
+  }
+  .hero-trust span{display:inline-flex;align-items:center;gap:6px}
 
-  /* FOOTER */
-  footer{padding:40px 24px;border-top:1px solid #eee;text-align:center;background:#fff}
-  .footer-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px}
-  .footer-logo{font-weight:800;font-size:16px}
-  .footer-logo span{color:#FFB800}
-  .footer-links{display:flex;gap:20px;flex-wrap:wrap;justify-content:center}
-  .footer-links a{font-size:13px;color:#888;text-decoration:none}
-  .footer-links a:hover{color:#1A1A1A}
-  .footer-copy{font-size:12px;color:#aaa}
+  /* ─── Section scaffolding ─────────────────────────────────────── */
+  .section{padding:96px 24px}
+  .section-inner{max-width:1180px;margin:0 auto}
+  .section-header{max-width:680px;margin:0 auto 56px;text-align:center}
+  .section-eyebrow{font-size:12px;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+  .section-header h2{font-size:clamp(32px,4vw,44px);font-weight:800;letter-spacing:-0.035em;line-height:1.1;margin-bottom:14px}
+  .section-header h2 span{color:var(--text-dim);font-weight:400}
+  .section-header p{font-size:16px;color:var(--text-mute);line-height:1.55;font-weight:400}
+
+  /* ─── Dashboard preview — LIGHT theme ─────────────────────────── */
+  .preview-section{padding:20px 24px 96px;position:relative;z-index:2}
+  .preview-wrap{max-width:1080px;margin:0 auto;border:1px solid var(--border);border-radius:14px;background:var(--bg-pure);overflow:hidden;box-shadow:0 30px 80px -20px rgba(9,9,11,0.15), 0 10px 30px -10px rgba(9,9,11,0.06)}
+  .preview-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border-lt);background:var(--bg)}
+  .preview-bar .dot{width:10px;height:10px;border-radius:50%}
+  .preview-url{flex:1;margin-left:10px;background:var(--bg-pure);border:1px solid var(--border-lt);border-radius:6px;padding:3px 10px;font-size:11px;color:var(--text-mute);font-family:ui-monospace,Menlo,monospace}
+  .preview-body{display:grid;grid-template-columns:200px 1fr;min-height:440px}
+  .preview-sidebar{background:var(--bg);border-right:1px solid var(--border-lt);padding:14px 8px;display:flex;flex-direction:column;gap:2px}
+  .preview-sidebar .side-brand{display:flex;align-items:center;gap:8px;padding:6px 10px 14px;border-bottom:1px solid var(--border-lt);margin-bottom:8px}
+  .preview-sidebar .side-brand-t{width:22px;height:22px;background:var(--text);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--accent);font-size:12px;font-weight:800}
+  .preview-sidebar .side-brand-n{font-size:13px;font-weight:700;letter-spacing:-0.02em}
+  .side-row{display:flex;align-items:center;gap:10px;padding:7px 10px;border-radius:6px;font-size:12px;color:var(--text-mute);font-weight:500}
+  .side-row svg{flex-shrink:0;opacity:0.7}
+  .side-row.active{background:var(--bg-pure);color:var(--text);box-shadow:0 1px 2px rgba(9,9,11,0.04);border:1px solid var(--border-lt)}
+  .side-row.active svg{opacity:1}
+  .preview-main{padding:20px;display:flex;flex-direction:column;gap:14px;background:var(--bg-pure)}
+  .preview-head{display:flex;align-items:center;justify-content:space-between}
+  .preview-head h3{font-size:18px;font-weight:700;letter-spacing:-0.02em}
+  .preview-head .sub{font-size:12px;color:var(--text-dim)}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+  .kpi{background:var(--bg);border:1px solid var(--border-lt);border-radius:8px;padding:12px}
+  .kpi .kpi-l{font-size:10px;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px}
+  .kpi .kpi-v{font-size:20px;font-weight:700;letter-spacing:-0.02em;color:var(--text);line-height:1}
+  .kpi .kpi-d{font-size:11px;font-weight:500;color:var(--success);margin-top:4px}
+  .kpi .kpi-d.down{color:var(--warn)}
+  .panels{display:grid;grid-template-columns:1.4fr 1fr;gap:12px;flex:1}
+  .panel{background:var(--bg);border:1px solid var(--border-lt);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px}
+  .panel-head{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;border-bottom:1px solid var(--border-lt)}
+  .panel-head-t{font-size:12px;font-weight:700}
+  .panel-head .chip{font-size:9px;font-weight:600;padding:2px 7px;border-radius:100px;background:#DCFCE7;color:#166534}
+  .inv-list .inv-r{display:grid;grid-template-columns:36px 1fr auto;gap:10px;padding:6px 0;align-items:center;border-bottom:1px solid var(--border-lt)}
+  .inv-list .inv-r:last-child{border-bottom:none}
+  .inv-list .inv-t{width:36px;height:22px;background:linear-gradient(135deg,#CBD5E1,#94A3B8);border-radius:4px}
+  .inv-list .inv-m b{display:block;font-size:11px;font-weight:600;color:var(--text)}
+  .inv-list .inv-m span{font-size:10px;color:var(--text-dim)}
+  .inv-list .inv-p{text-align:right}
+  .inv-list .inv-p b{font-size:11px;font-weight:700;color:var(--text);display:block}
+  .inv-list .inv-p span{font-size:9px;color:var(--text-dim)}
+  .inv-list .inv-p span.hot{color:#B91C1C}
+  .deal-list .d-r{display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border-lt);font-size:11px}
+  .deal-list .d-r:last-child{border-bottom:none}
+  .deal-list .d-r .n{color:var(--text);font-weight:500}
+  .deal-list .d-r .g{color:var(--text);font-weight:700}
+  .stage{font-size:9px;font-weight:600;padding:2px 8px;border-radius:100px}
+  .stage.lead{background:#DBEAFE;color:#1E3A8A}
+  .stage.desk{background:#FEF3C7;color:#92400E}
+  .stage.fi{background:#F3E8FF;color:#6B21A8}
+  .stage.funded{background:#DCFCE7;color:#166534}
+
+  /* ─── Features grid ───────────────────────────────────────────── */
+  .features{background:var(--bg-pure);border-top:1px solid var(--border-lt);border-bottom:1px solid var(--border-lt)}
+  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border-lt)}
+  .feature-card{background:var(--bg-pure);padding:28px 24px;transition:background .15s}
+  .feature-card:hover{background:var(--bg)}
+  .feature-icon{width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;background:var(--bg);border:1px solid var(--border);color:var(--text)}
+  .feature-icon svg{width:18px;height:18px}
+  .feature-card h3{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
+  .feature-card p{font-size:13px;color:var(--text-mute);line-height:1.6;font-weight:400}
+
+  /* ─── Stats band ──────────────────────────────────────────────── */
+  .stats{padding:80px 24px;background:var(--bg);border-top:1px solid var(--border-lt);border-bottom:1px solid var(--border-lt)}
+  .stats-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0}
+  .stat{padding:0 24px;border-right:1px solid var(--border);text-align:left}
+  .stat:last-child{border-right:none}
+  .stat-v{font-size:44px;font-weight:800;letter-spacing:-0.045em;color:var(--text);line-height:1}
+  .stat-v .u{font-size:20px;font-weight:700;color:var(--text-dim);margin-left:2px}
+  .stat-l{font-size:12px;color:var(--text-mute);margin-top:10px;line-height:1.4;max-width:200px}
+
+  /* ─── Roles ───────────────────────────────────────────────────── */
+  .roles-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:10px}
+  .role-card{background:var(--bg-pure);border:1px solid var(--border);border-radius:10px;padding:18px}
+  .role-card h4{font-size:13px;font-weight:700;margin-bottom:4px;display:flex;align-items:center;gap:8px}
+  .role-card h4 svg{width:14px;height:14px;color:var(--text-mute)}
+  .role-card p{font-size:12px;color:var(--text-mute);line-height:1.55}
+
+  /* ─── How it works ────────────────────────────────────────────── */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px}
+  .step{background:var(--bg-pure);border:1px solid var(--border);border-radius:10px;padding:22px;position:relative}
+  .step-num{font-size:11px;font-weight:600;color:var(--text-dim);letter-spacing:0.1em;margin-bottom:10px}
+  .step h3{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
+  .step p{font-size:13px;color:var(--text-mute);line-height:1.6}
+
+  /* ─── Final CTA ───────────────────────────────────────────────── */
+  .cta-section{padding:96px 24px;text-align:center;background:var(--text);color:var(--bg-pure);position:relative;overflow:hidden}
+  .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 100%, rgba(255,184,0,0.15), transparent 70%);pointer-events:none}
+  .cta-section>*{position:relative;z-index:1}
+  .cta-section h2{font-size:clamp(32px,4vw,48px);font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:14px}
+  .cta-section h2 span{color:var(--accent)}
+  .cta-section p{font-size:16px;color:#A1A1AA;margin:0 auto 32px;max-width:500px;font-weight:400;line-height:1.55}
+  .cta-section .btn-primary{background:var(--accent);color:var(--text)}
+  .cta-section .btn-ghost{color:var(--bg-pure);border-color:#3F3F46}
+  .cta-section .btn-ghost:hover{border-color:var(--bg-pure)}
+
+  /* ─── FOOTER ──────────────────────────────────────────────────── */
+  footer{padding:40px 24px;background:var(--bg);border-top:1px solid var(--border-lt)}
+  .footer-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+  .footer-logo{font-size:13px;font-weight:700;letter-spacing:-0.02em;display:flex;align-items:center;gap:9px}
+  .footer-logo-tile{width:20px;height:20px;background:var(--text);border-radius:5px;display:inline-flex;align-items:center;justify-content:center;color:var(--accent);font-size:11px;font-weight:800}
+  .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+  .footer-links a{font-size:12px;color:var(--text-mute);text-decoration:none;font-weight:400}
+  .footer-links a:hover{color:var(--text)}
+  .footer-copy{font-size:12px;color:var(--text-dim)}
 
   @media(max-width:768px){
     .nav-links a:not(.btn){display:none}
-    .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px 24px}
-    .mockup-kpis{grid-template-columns:repeat(2,1fr)}
-    .mockup-panels{grid-template-columns:1fr}
-    .mockup-grid{grid-template-columns:1fr}
-    .mockup-sidebar{display:none}
+    .stats-inner{grid-template-columns:repeat(2,1fr);gap:32px}
+    .stat{border-right:none;padding:0}
+    .preview-body{grid-template-columns:1fr}
+    .preview-sidebar{display:none}
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .panels{grid-template-columns:1fr}
+    .hero{padding-top:100px;min-height:auto}
     .footer-inner{flex-direction:column;text-align:center}
-    .hero-visual{margin-top:40px}
   }
 </style>
 </head>
@@ -248,130 +362,171 @@
 <!-- NAV -->
 <nav aria-label="Primary">
   <div class="nav-inner">
-    <a href="https://unifiedgarage.com" class="nav-logo">Unified<span>Garage</span></a>
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-tile">U</span>
+      UnifiedGarage
+    </a>
     <div class="nav-links">
       <a href="#features">Features</a>
-      <a href="#how">How It Works</a>
-      <a href="https://app.unifiedgarage.com/login">Sign In</a>
-      <a href="https://app.unifiedgarage.com/signup" class="btn btn-primary">Start Free Trial</a>
+      <a href="#how">How it works</a>
+      <a href="#roles">For your team</a>
+      <a href="https://app.unifiedgarage.com/login">Sign in</a>
+      <a href="https://app.unifiedgarage.com/signup" class="btn btn-primary">Start free trial</a>
     </div>
   </div>
 </nav>
 
 <main id="main">
 
-<!-- HERO -->
+<!-- HERO with layered graphic -->
 <section class="hero">
-  <div class="hero-badge"><span class="hero-badge-dot"></span> Built by dealers, for dealers</div>
-  <h1>Run your whole store<br/>from <span>one screen</span>.</h1>
-  <p>UnifiedGarage is the modern DMS that ties inventory, recon, deals, F&amp;I, service, and the showroom floor together. Replace the seven tools your team juggles every morning with one platform that actually talks to itself.</p>
-  <div class="hero-ctas">
-    <a href="https://app.unifiedgarage.com/signup" class="btn btn-primary btn-lg">Start Free Trial</a>
-    <a href="mailto:hello@unifiedgarage.com?subject=UnifiedGarage%20Demo%20Request" class="btn btn-outline btn-lg">Book a Demo</a>
-  </div>
-  <div class="hero-trust" aria-label="Trust highlights">
-    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> No setup fee</span>
-    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> 14-day free trial</span>
-    <span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Switch in under a week</span>
+
+  <!-- Background layers -->
+  <div class="hero-mesh" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+
+  <!-- Floating UI fragments representing the disparate tools a dealership
+       currently juggles — inventory software, service writer screen,
+       desking tool, F&I menu, technician worklist. They sit behind
+       the headline as a visual metaphor for "unified". -->
+  <div class="hero-cards" aria-hidden="true">
+    <div class="frag frag-kpi1">
+      <div class="frag-label">Desked MTD</div>
+      <div class="frag-val">47<span class="delta">+12%</span></div>
+    </div>
+    <div class="frag frag-kpi2">
+      <div class="frag-label">Turn time</div>
+      <div class="frag-val">13<span style="font-size:11px;color:#A1A1AA;font-weight:500;margin-left:2px">days</span><span class="delta">-4d</span></div>
+    </div>
+    <div class="frag frag-ro">
+      <div class="frag-label">RO #4851</div>
+      <div class="frag-val" style="font-size:12px;font-weight:600;letter-spacing:-0.01em">Tires + alignment</div>
+      <div class="frag-sub">Tech Martinez · 2.4h</div>
+    </div>
+    <div class="frag frag-inv">
+      <div class="inv-row">
+        <div class="inv-thumb"></div>
+        <div class="inv-meta"><b>F-150 XLT</b><span>Stock V2490</span></div>
+        <div class="inv-price">$48,250</div>
+      </div>
+      <div class="inv-row">
+        <div class="inv-thumb"></div>
+        <div class="inv-meta"><b>CR-V EX-L</b><span>Stock V2491</span></div>
+        <div class="inv-price">$32,940</div>
+      </div>
+    </div>
+    <div class="frag frag-deal">
+      <div class="frag-label">Williams, K.</div>
+      <div class="stage-pill fi">F&amp;I menu</div>
+    </div>
+    <div class="frag frag-tech">
+      <div class="frag-label">Hernandez, J.</div>
+      <div class="stage-pill funded">Funded</div>
+      <div class="frag-sub" style="margin-top:4px">$2,890 front · $1,492 back</div>
+    </div>
   </div>
 
-  <!-- Dealer dashboard mockup -->
-  <div class="hero-visual" aria-hidden="true">
-    <div class="hero-mockup">
-      <div class="mockup-bar">
-        <div class="mockup-dot" style="background:#FF5F57"></div>
-        <div class="mockup-dot" style="background:#FEBC2E"></div>
-        <div class="mockup-dot" style="background:#28C840"></div>
-        <div class="mockup-url"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 8h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zm-7-2a3 3 0 0 1 6 0v2h-6V6z"/></svg>app.unifiedgarage.com/dashboard</div>
-      </div>
-      <div class="mockup-grid">
-        <div class="mockup-sidebar">
-          <div class="mockup-brand">
-            <div class="mockup-brand-tile">U</div>
-            <div class="mockup-brand-name">Unified<span>Garage</span></div>
-          </div>
-          <div class="nav-row active"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Dashboard</div>
-          <div class="nav-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>Inventory</div>
-          <div class="nav-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>Deals</div>
-          <div class="nav-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Service</div>
-          <div class="nav-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>CRM</div>
-          <div class="nav-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>Reports</div>
-          <div class="nav-row"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>Settings</div>
+  <!-- Foreground content -->
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span class="hero-badge-dot"></span>
+      Now in beta · early rooftops onboarding
+    </div>
+    <h1>One workspace for the<br/><span>whole dealership.</span></h1>
+    <p class="lede">Replace seven disconnected tools with one quiet, fast, well-designed system. Inventory, deals, service, F&amp;I, and the showroom floor &mdash; finally talking to each other.</p>
+    <div class="hero-ctas">
+      <a href="https://app.unifiedgarage.com/signup" class="btn btn-dark btn-lg">Start free trial →</a>
+      <a href="mailto:hello@unifiedgarage.com?subject=UnifiedGarage%20Demo%20Request" class="btn btn-ghost btn-lg">Book a demo</a>
+    </div>
+    <div class="hero-trust" aria-label="Trust highlights">
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        14-day free trial
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        No setup fee
+      </span>
+      <span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Switch in under a week
+      </span>
+    </div>
+  </div>
+</section>
+
+<!-- Live product preview (light theme) -->
+<section class="preview-section" aria-label="Product preview">
+  <div class="preview-wrap" aria-hidden="true">
+    <div class="preview-bar">
+      <div class="dot" style="background:#FF5F57"></div>
+      <div class="dot" style="background:#FEBC2E"></div>
+      <div class="dot" style="background:#28C840"></div>
+      <div class="preview-url">app.unifiedgarage.com/dashboard</div>
+    </div>
+    <div class="preview-body">
+      <aside class="preview-sidebar">
+        <div class="side-brand">
+          <span class="side-brand-t">U</span>
+          <span class="side-brand-n">UnifiedGarage</span>
         </div>
-        <div class="mockup-content">
-          <div class="mockup-kpis">
-            <div class="kpi">
-              <div class="kpi-label">Units Sold (MTD)</div>
-              <div class="kpi-value">47</div>
-              <div class="kpi-delta">&#9650; 12% vs last</div>
+        <div class="side-row active">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          Dashboard
+        </div>
+        <div class="side-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
+          Inventory
+        </div>
+        <div class="side-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+          Deals
+        </div>
+        <div class="side-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          Service
+        </div>
+        <div class="side-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          CRM
+        </div>
+        <div class="side-row">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
+          Reports
+        </div>
+      </aside>
+      <div class="preview-main">
+        <div class="preview-head">
+          <h3>Dashboard</h3>
+          <div class="sub">April 21 · Audi Kelowna · MTD</div>
+        </div>
+        <div class="kpis">
+          <div class="kpi"><div class="kpi-l">Desked</div><div class="kpi-v">47</div><div class="kpi-d">▲ 12% vs last</div></div>
+          <div class="kpi"><div class="kpi-l">Front gross</div><div class="kpi-v">$2,140</div><div class="kpi-d">▲ $180</div></div>
+          <div class="kpi"><div class="kpi-l">F&amp;I / copy</div><div class="kpi-v">$1,492</div><div class="kpi-d">▲ 8%</div></div>
+          <div class="kpi"><div class="kpi-l">Turn time</div><div class="kpi-v">13<span class="u">&nbsp;d</span></div><div class="kpi-d">▼ 4 days</div></div>
+        </div>
+        <div class="panels">
+          <div class="panel">
+            <div class="panel-head">
+              <div class="panel-head-t">Inventory · aging</div>
+              <div class="chip">Live</div>
             </div>
-            <div class="kpi">
-              <div class="kpi-label">Avg Front Gross</div>
-              <div class="kpi-value">$2,140</div>
-              <div class="kpi-delta">&#9650; $180</div>
-            </div>
-            <div class="kpi">
-              <div class="kpi-label">F&amp;I / Copy</div>
-              <div class="kpi-value">$1,492</div>
-              <div class="kpi-delta">&#9650; 8%</div>
-            </div>
-            <div class="kpi">
-              <div class="kpi-label">Avg Turn Time</div>
-              <div class="kpi-value">13<span style="font-size:11px;color:#94A3B8;font-weight:600"> days</span></div>
-              <div class="kpi-delta">&#9660; 4 days</div>
+            <div class="inv-list">
+              <div class="inv-r"><div class="inv-t"></div><div class="inv-m"><b>2024 Ford F-150 XLT</b><span>Stock V2490 · 31k mi</span></div><div class="inv-p"><b>$48,250</b><span>14 days</span></div></div>
+              <div class="inv-r"><div class="inv-t"></div><div class="inv-m"><b>2023 Honda CR-V EX-L</b><span>Stock V2491 · 22k mi</span></div><div class="inv-p"><b>$32,940</b><span>7 days</span></div></div>
+              <div class="inv-r"><div class="inv-t"></div><div class="inv-m"><b>2022 Lexus RX 450h</b><span>Stock V2492 · 38k mi</span></div><div class="inv-p"><b>$41,500</b><span class="hot">62 days</span></div></div>
+              <div class="inv-r"><div class="inv-t"></div><div class="inv-m"><b>2024 Toyota Tacoma</b><span>Stock V2493 · 12k mi</span></div><div class="inv-p"><b>$39,800</b><span>3 days</span></div></div>
             </div>
           </div>
-          <div class="mockup-panels">
-            <div class="panel" aria-label="Inventory aging snapshot">
-              <div class="panel-title">Inventory &middot; Aging <span class="tag">Live</span></div>
-              <div class="inv-row">
-                <div class="inv-thumb"></div>
-                <div class="inv-meta"><strong>2024 Ford F-150 XLT</strong>Stock #V2490 &middot; 31k mi</div>
-                <div><div class="inv-price">$48,250</div><div class="inv-aged">14 days</div></div>
-              </div>
-              <div class="inv-row">
-                <div class="inv-thumb"></div>
-                <div class="inv-meta"><strong>2023 Honda CR-V EX-L</strong>Stock #V2491 &middot; 22k mi</div>
-                <div><div class="inv-price">$32,940</div><div class="inv-aged">7 days</div></div>
-              </div>
-              <div class="inv-row">
-                <div class="inv-thumb"></div>
-                <div class="inv-meta"><strong>2022 Lexus RX 450h</strong>Stock #V2492 &middot; 38k mi</div>
-                <div><div class="inv-price">$41,500</div><div class="inv-aged hot">62 days</div></div>
-              </div>
-              <div class="inv-row">
-                <div class="inv-thumb"></div>
-                <div class="inv-meta"><strong>2024 Toyota Tacoma SR5</strong>Stock #V2493 &middot; 12k mi</div>
-                <div><div class="inv-price">$39,800</div><div class="inv-aged">3 days</div></div>
-              </div>
-            </div>
-            <div class="panel" aria-label="Deal pipeline">
-              <div class="panel-title">Active Deals</div>
-              <div class="pipeline-row">
-                <span class="pipe-name">Hernandez, J.</span>
-                <span class="stage-pill stage-funded">Funded</span>
-                <span class="pipe-gross">$2,890</span>
-              </div>
-              <div class="pipeline-row">
-                <span class="pipe-name">Williams, K.</span>
-                <span class="stage-pill stage-fi">F&amp;I</span>
-                <span class="pipe-gross">$3,120</span>
-              </div>
-              <div class="pipeline-row">
-                <span class="pipe-name">Patel, A.</span>
-                <span class="stage-pill stage-desk">Desked</span>
-                <span class="pipe-gross">$1,740</span>
-              </div>
-              <div class="pipeline-row">
-                <span class="pipe-name">Chen, R.</span>
-                <span class="stage-pill stage-desk">Desked</span>
-                <span class="pipe-gross">$2,260</span>
-              </div>
-              <div class="pipeline-row">
-                <span class="pipe-name">Morrison, B.</span>
-                <span class="stage-pill stage-lead">Lead</span>
-                <span class="pipe-gross">—</span>
-              </div>
+          <div class="panel">
+            <div class="panel-head"><div class="panel-head-t">Active deals</div></div>
+            <div class="deal-list">
+              <div class="d-r"><span class="n">Hernandez, J.</span><span class="stage funded">Funded</span><span class="g">$2,890</span></div>
+              <div class="d-r"><span class="n">Williams, K.</span><span class="stage fi">F&amp;I</span><span class="g">$3,120</span></div>
+              <div class="d-r"><span class="n">Patel, A.</span><span class="stage desk">Desked</span><span class="g">$1,740</span></div>
+              <div class="d-r"><span class="n">Chen, R.</span><span class="stage desk">Desked</span><span class="g">$2,260</span></div>
+              <div class="d-r"><span class="n">Morrison, B.</span><span class="stage lead">Lead</span><span class="g">—</span></div>
             </div>
           </div>
         </div>
@@ -380,209 +535,177 @@
   </div>
 </section>
 
-<!-- LOGO STRIP -->
-<section class="logo-strip" aria-label="Systems we replace">
-  <div class="logo-strip-inner">
-    <p>Replacing legacy systems at pilot rooftops</p>
-    <div class="logo-strip-row">
-      <span>Reynolds &amp; Reynolds</span>
-      <span>CDK&nbsp;Global</span>
-      <span>Dealertrack</span>
-      <span>Auto/Mate</span>
-      <span>DealerSocket</span>
-    </div>
-  </div>
-</section>
-
-<!-- FEATURES -->
-<section class="features" id="features">
+<!-- Features -->
+<section class="section features" id="features">
   <div class="section-inner">
     <div class="section-header">
-      <span class="eyebrow">What's inside</span>
-      <h2>Every department. One login.</h2>
-      <p>Sales, service, parts, F&amp;I, BDC, and accounting all work out of the same system — because they work with each other every day.</p>
+      <div class="section-eyebrow">What's inside</div>
+      <h2>Every department. <span>One login.</span></h2>
+      <p>Sales, service, parts, F&amp;I, BDC, and accounting all work out of the same system &mdash; because they work with each other every day.</p>
     </div>
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg>
-        </div>
-        <h3>Inventory &amp; Recon</h3>
-        <p>Every unit from landed to front line in one queue. Aging alerts, photo capture, VIN decode, book values, market-based pricing, and recon step tracking — no more whiteboards or spreadsheets.</p>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 16H9m10 0h3v-3.15a1 1 0 0 0-.84-.99L16 11l-2.7-3.6a1 1 0 0 0-.8-.4H5.24a2 2 0 0 0-1.8 1.1l-.8 1.63A6 6 0 0 0 2 12.42V16h2"/><circle cx="6.5" cy="16.5" r="2.5"/><circle cx="16.5" cy="16.5" r="2.5"/></svg></div>
+        <h3>Inventory &amp; recon</h3>
+        <p>Every unit from landed to front line in one queue. Aging alerts, photo capture, VIN decode, book values, market-based pricing, and recon step tracking.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 11v6"/><path d="M9 14h6"/></svg>
-        </div>
-        <h3>Deal Desking &amp; F&amp;I</h3>
-        <p>Work multiple payment scenarios side-by-side, pass the deal to F&amp;I without re-keying a thing, present a menu the customer actually understands, and post straight to the GL when it funds.</p>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><path d="M12 11v6"/><path d="M9 14h6"/></svg></div>
+        <h3>Deal desking &amp; F&amp;I</h3>
+        <p>Work multiple payment scenarios side by side, pass to F&amp;I without re-keying, present a menu the customer understands, and post to the GL when it funds.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
-        </div>
-        <h3>Service &amp; Parts</h3>
-        <p>Write ROs, dispatch techs, track hours, check part availability, and get customer approval by text before any wrench turns. Service writers, techs, and parts clerks finally share one screen.</p>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        <h3>Service &amp; parts</h3>
+        <p>Write ROs, dispatch techs, track hours, check part availability, and get customer approval by text before any wrench turns.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-        </div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
         <h3>Sales CRM &amp; BDC</h3>
-        <p>Round-robin lead assignment, call/text/email tracking, be-back reminders, and a pipeline that shows who's hot and who's ghosting. Ups, leads, be-backs — all in one queue your floor actually checks.</p>
+        <p>Round-robin lead assignment, call/text/email tracking, be-back reminders, and a pipeline that shows who's hot and who's ghosting.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg>
-        </div>
-        <h3>Reports that actually help</h3>
-        <p>Units desked, turn time, gross per copy, F&amp;I penetration, inventory aging, tech efficiency, CSI — filter by salesperson, day, or rooftop. Export to Excel or pin to your dashboard.</p>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="20" x2="12" y2="10"/><line x1="18" y1="20" x2="18" y2="4"/><line x1="6" y1="20" x2="6" y2="16"/></svg></div>
+        <h3>Reports that help</h3>
+        <p>Units desked, turn time, gross per copy, F&amp;I penetration, inventory aging, tech efficiency, CSI &mdash; filter, export, pin to dashboard.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-        </div>
-        <h3>Customer Portal</h3>
-        <p>Your customers see what they bought, their service history, pending work, and upcoming recalls — on their phone, branded with your store. Service appointments and e-signatures included.</p>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+        <h3>Customer portal</h3>
+        <p>Customers see what they bought, service history, and upcoming recalls &mdash; on their phone, branded with your store.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="4" y1="14" x2="9" y2="14"/><line x1="14" y1="14" x2="20" y2="14"/></svg>
-        </div>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2" ry="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="9" y1="4" x2="9" y2="20"/><line x1="4" y1="14" x2="9" y2="14"/><line x1="14" y1="14" x2="20" y2="14"/></svg></div>
         <h3>Accounting &amp; GL</h3>
-        <p>Deal posting, month-end, bank recs, and a real dealership chart of accounts — purpose-built for car deals, parts inventory, and service schedules. Not generic small-business bookkeeping.</p>
+        <p>Deal posting, month-end, bank recs, and a chart of accounts purpose-built for dealer schedules. Not generic small-business bookkeeping.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"/></svg>
-        </div>
-        <h3>Multi-Rooftop</h3>
-        <p>Run three stores or thirty. Share customers across rooftops, transfer inventory between stores, see group-level reports, and scope every user to the store(s) they belong to.</p>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 13h1M9 17h1M14 9h1M14 13h1M14 17h1"/></svg></div>
+        <h3>Multi-rooftop</h3>
+        <p>Run three stores or thirty. Share customers across rooftops, transfer inventory, see group-level reports, scope users per store.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
-        </div>
-        <h3>Trade-In Appraisals</h3>
-        <p>Structured appraisal form with condition grading, photos, multiple book values, manager bump-approval, and one-click attachment to the deal jacket. No more appraisal forms disappearing into someone's desk.</p>
+        <div class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Trade-in appraisals</h3>
+        <p>Condition grading, multiple book values, manager bump-approval, one-click attachment to the deal jacket. No more lost forms.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
+<!-- Stats -->
 <section class="stats" aria-label="Platform highlights">
   <div class="stats-inner">
-    <div class="stats-header">
-      <h2>Numbers that matter to dealers.</h2>
-      <p>Not API endpoints or node counts &mdash; the stuff you measure on a Monday morning.</p>
+    <div class="stat">
+      <div class="stat-v">7<span class="u">&nbsp;days</span></div>
+      <div class="stat-l">From signup to your first desked deal</div>
     </div>
-    <div class="stats-grid">
-      <div><div class="stat-num">7<span class="unit">&nbsp;days</span></div><div class="stat-label">From signup to your first<br/>desked deal</div></div>
-      <div><div class="stat-num">1</div><div class="stat-label">Tool to open every<br/>morning, instead of seven</div></div>
-      <div><div class="stat-num">$0</div><div class="stat-label">Setup fee, implementation<br/>fee, or per-seat add-ons</div></div>
-      <div><div class="stat-num">24/7</div><div class="stat-label">Real humans on support,<br/>not overseas ticket queues</div></div>
+    <div class="stat">
+      <div class="stat-v">1</div>
+      <div class="stat-l">Tool to open every morning, instead of seven</div>
+    </div>
+    <div class="stat">
+      <div class="stat-v">$0</div>
+      <div class="stat-l">Setup fee, implementation fee, or per-seat add-ons</div>
+    </div>
+    <div class="stat">
+      <div class="stat-v">24<span class="u">/7</span></div>
+      <div class="stat-l">Real humans on support — not overseas ticket queues</div>
     </div>
   </div>
 </section>
 
-<!-- FOR EVERY ROLE -->
-<section class="roles" aria-label="Who uses UnifiedGarage">
+<!-- Roles -->
+<section class="section" id="roles">
   <div class="section-inner">
     <div class="section-header">
-      <span class="eyebrow">Every seat in the store</span>
-      <h2>A view for every role on the floor.</h2>
-      <p>Nine roles, one system. Each person sees exactly what they need, nothing more.</p>
+      <div class="section-eyebrow">Every seat</div>
+      <h2>A view for every role <span>on the floor.</span></h2>
+      <p>Nine roles, one system. Each person sees exactly what they need &mdash; nothing more.</p>
     </div>
     <div class="roles-grid">
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg></span>
-        <h4>Dealer / GM</h4>
-        <p>Full picture of the store: inventory, deals, gross, service bay, commissions, month-end.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14"/></svg>Dealer / GM</h4>
+        <p>Full store view: inventory, deals, gross, service bay, commissions, month-end.</p>
       </div>
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
-        <h4>Salesperson</h4>
-        <p>Today's ups, workplan, deals in flight, and follow-ups — on desktop or phone in the showroom.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>Salesperson</h4>
+        <p>Today's ups, workplan, deals in flight, follow-ups &mdash; desktop or phone in the showroom.</p>
       </div>
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg></span>
-        <h4>F&amp;I Manager</h4>
-        <p>Menu selling, compliance checklists, lender submissions, product attach tracking, and contract stacks.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>F&amp;I manager</h4>
+        <p>Menu selling, compliance checklists, lender submissions, product attach tracking.</p>
       </div>
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-        <h4>Service Advisor</h4>
-        <p>ROs, multi-point inspections, customer approvals by text, parts-on-order alerts, tech dispatch.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Service advisor</h4>
+        <p>ROs, inspections, customer approvals by text, parts-on-order alerts, tech dispatch.</p>
       </div>
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg></span>
-        <h4>Technician</h4>
-        <p>"My work" mobile view with assigned jobs, parts status, inspection capture, and time clock — all in the bay.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/></svg>Technician</h4>
+        <p>"My work" mobile view with assigned jobs, parts status, inspection capture, time clock.</p>
       </div>
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-3V4a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v3H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1z"/><line x1="12" y1="11" x2="12" y2="17"/></svg></span>
-        <h4>Parts Clerk</h4>
-        <p>Stock lookup, POs, bin locations, special orders tied to ROs, and daily usage reports.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-3V4a1 1 0 0 0-1-1H8a1 1 0 0 0-1 1v3H4a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V8a1 1 0 0 0-1-1z"/></svg>Parts clerk</h4>
+        <p>Stock lookup, POs, bin locations, special orders tied to ROs, daily usage reports.</p>
       </div>
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="9" y1="4" x2="9" y2="20"/></svg></span>
-        <h4>Accounting</h4>
-        <p>Deal postings, journal entries, schedules, commissions, and month-end close in a dealer-shaped GL.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><line x1="4" y1="9" x2="20" y2="9"/><line x1="9" y1="4" x2="9" y2="20"/></svg>Accounting</h4>
+        <p>Deal postings, journal entries, schedules, commissions, month-end close in a dealer-shaped GL.</p>
       </div>
       <div class="role-card">
-        <span class="role-emoji" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
-        <h4>BDC Agent</h4>
-        <p>Lead triage, be-back queue, call scripts, SMS/email templates, and appointment booking straight into the salesfloor's calendar.</p>
+        <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>BDC agent</h4>
+        <p>Lead triage, be-back queue, scripts, templates, appointment booking into the floor's calendar.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- HOW IT WORKS -->
-<section class="how" id="how">
+<!-- How it works -->
+<section class="section features" id="how" style="background:var(--bg)">
   <div class="section-inner">
     <div class="section-header">
-      <span class="eyebrow">Getting started</span>
-      <h2>Up and running in days, not months.</h2>
+      <div class="section-eyebrow">Getting started</div>
+      <h2>Up and running <span>in days.</span></h2>
       <p>No server room. No 18-month implementation. No team of consultants billing hourly.</p>
     </div>
     <div class="steps">
       <div class="step">
-        <div class="step-num" aria-hidden="true">1</div>
+        <div class="step-num">STEP 01</div>
         <h3>Import your store</h3>
-        <p>Bring over inventory, customers, and open deals from Reynolds, CDK, Dealertrack, or a CSV export. We match VINs, map fields, and flag anything that looks off before go-live.</p>
+        <p>Bring inventory, customers, and open deals from Reynolds, CDK, Dealertrack, or a CSV. We match VINs, map fields, and flag anything that looks off before go-live.</p>
       </div>
       <div class="step">
-        <div class="step-num" aria-hidden="true">2</div>
+        <div class="step-num">STEP 02</div>
         <h3>Train your team</h3>
-        <p>Each role gets a guided walkthrough built for them &mdash; sales, F&amp;I, service, parts, BDC, and management. Usually under an hour per person, often just 15 minutes.</p>
+        <p>Each role gets a guided walkthrough &mdash; sales, F&amp;I, service, parts, BDC, management. Usually under an hour; often just fifteen minutes.</p>
       </div>
       <div class="step">
-        <div class="step-num" aria-hidden="true">3</div>
+        <div class="step-num">STEP 03</div>
         <h3>Go live</h3>
-        <p>Run both systems for a week, then cut over. We're on-call for the first weekend so nothing gets dropped. Most dealers desk their first real UnifiedGarage deal within 7 days of signup.</p>
+        <p>Run both systems for a week, then cut over. We're on-call for the first weekend so nothing drops. Most dealers desk their first real UnifiedGarage deal within seven days of signup.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- Final CTA -->
 <section class="cta-section">
-  <h2>See it running in your showroom.</h2>
-  <p>Book a 30-minute demo and we'll load your inventory in sandbox before the call. No IT project, no committee, no PowerPoint.</p>
-  <div class="cta-row">
-    <a href="mailto:hello@unifiedgarage.com?subject=UnifiedGarage%20Demo%20Request" class="btn btn-dark btn-lg">Book a Demo</a>
-    <a href="https://app.unifiedgarage.com/signup" class="btn btn-outline btn-lg">Start Free Trial</a>
+  <h2>See it running in <span>your showroom.</span></h2>
+  <p>Book a 30-minute demo and we'll load your inventory in sandbox before the call. No IT project. No committee. No PowerPoint.</p>
+  <div class="hero-ctas" style="justify-content:center">
+    <a href="mailto:hello@unifiedgarage.com?subject=UnifiedGarage%20Demo%20Request" class="btn btn-primary btn-lg">Book a demo →</a>
+    <a href="https://app.unifiedgarage.com/signup" class="btn btn-ghost btn-lg">Start free trial</a>
   </div>
 </section>
 
 </main>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-logo">Unified<span>Garage</span></div>
+    <div class="footer-logo">
+      <span class="footer-logo-tile">U</span>
+      UnifiedGarage
+    </div>
     <div class="footer-links">
       <a href="#features">Features</a>
       <a href="https://docs.unifiedgarage.com">Docs</a>
@@ -590,7 +713,7 @@
       <a href="/privacy">Privacy</a>
       <a href="/terms">Terms</a>
     </div>
-    <div class="footer-copy">&copy; 2026 UnifiedGarage. All rights reserved.</div>
+    <div class="footer-copy">&copy; 2026 UnifiedGarage</div>
   </div>
 </footer>
 
