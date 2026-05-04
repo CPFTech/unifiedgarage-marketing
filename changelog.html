@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Changelog — UnifiedGarage</title>
+<meta name="description" content="What's new in UnifiedGarage. Recent feature releases, fixes, and platform changes."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFB800'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%231A1A1A'%3EU%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;color:#1A1A1A;background:#FAFAFA;-webkit-font-smoothing:antialiased;line-height:1.6}
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:1px solid #F4F4F5;z-index:50}
+  .nav-inner{max-width:880px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .nav-logo{font-size:15px;font-weight:800;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;text-decoration:none;color:#1A1A1A}
+  .nav-logo-tile{width:24px;height:24px;background:#1A1A1A;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:#FFB800;font-size:12px;font-weight:800}
+  .nav-links{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:500}
+  .nav-links a{color:#52525B;text-decoration:none}
+  main{max-width:760px;margin:0 auto;padding:120px 24px 80px}
+  .eyebrow{font-size:12px;font-weight:600;color:#52525B;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+  h1{font-size:clamp(36px,5vw,44px);font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:14px}
+  .lede{font-size:17px;color:#52525B;margin-bottom:48px}
+  .release{background:#FFFFFF;border:1px solid #E4E4E7;border-radius:12px;padding:28px;margin-bottom:18px}
+  .release-date{font-size:12px;font-weight:700;color:#52525B;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
+  .release h2{font-size:20px;font-weight:700;letter-spacing:-0.02em;margin-bottom:14px}
+  .release h3{font-size:13px;font-weight:700;color:#52525B;text-transform:uppercase;letter-spacing:0.06em;margin-top:14px;margin-bottom:6px}
+  .release ul{margin-left:20px}
+  .release li{font-size:14px;margin-bottom:5px;color:#1A1A1A}
+  .release li strong{font-weight:600}
+  footer{padding:48px 24px;background:#FFFFFF;border-top:1px solid #F4F4F5;text-align:center;font-size:13px;color:#71717A}
+  footer a{color:#52525B;text-decoration:none;margin:0 10px}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-tile">U</span>
+      UnifiedGarage
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="https://app.unifiedgarage.com/login">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">What&apos;s new</div>
+  <h1>Changelog.</h1>
+  <p class="lede">A running list of what we&apos;ve shipped. We push small improvements daily; this page captures the ones worth knowing about.</p>
+
+  <div class="release">
+    <div class="release-date">May 2026</div>
+    <h2>QuickFlip-inspired sweep</h2>
+    <h3>Added</h3>
+    <ul>
+      <li><strong>Showroom TV mode</strong> at /p/[slug]/floor — public auto-refresh dashboard for wall-mounted screens</li>
+      <li><strong>Window stickers</strong> via the print library — single-click branded window flyer with hero pricing</li>
+      <li><strong>Vehicle photo categorization</strong> — Cover/Exterior/Interior/Damage/Wheels/Detail tabs on inventory detail</li>
+      <li><strong>Customer reservation hold</strong> — sales reps can hold a vehicle for a named customer with expiry</li>
+      <li><strong>Retail-ready approval workflow</strong> — manager sign-off before a vehicle becomes active inventory, with audit trail</li>
+      <li><strong>Public trade-in appraisal form</strong> — customers submit at /p/[slug]/trade; lands in the appraisal queue</li>
+      <li><strong>User custom title chips</strong> — "Sales mgr", "Used car mgr" alongside role</li>
+      <li><strong>Trial-end banner</strong> — running countdown for dealerships in trial</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-date">April 2026</div>
+    <h2>Tier 1 reports + customer MPI</h2>
+    <h3>Added</h3>
+    <ul>
+      <li><strong>Daily Operating Control (DOC)</strong> dashboard — service today, deals MTD/YTD, WIP at a glance</li>
+      <li><strong>Technician productivity report</strong> — hours sold, RO + line counts per tech</li>
+      <li><strong>Advisor productivity report</strong> — ROs written, hours/RO, parts$/RO, customer-pay mix</li>
+      <li><strong>Multi-point inspection (MPI)</strong> with customer-facing approval link — photos + per-item Approve/Decline via SMS or email</li>
+      <li><strong>Declined-work follow-up queue</strong> — auto-tracks customer-declined recommendations for re-marketing</li>
+      <li><strong>Print library</strong> — shared infrastructure for RO, deal jacket, PO, inspection report, daily close</li>
+      <li><strong>Print settings persistence</strong> — per-doc paper/margin preferences sync across devices</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-date">March 2026</div>
+    <h2>App redesign + auth hardening</h2>
+    <h3>Added</h3>
+    <ul>
+      <li><strong>Direction C aesthetic</strong> — light zinc canvas, amber accents, editorial sidebar across every page</li>
+      <li><strong>PageHeader / StatRow components</strong> — unified visual rhythm</li>
+      <li><strong>CSRF protection</strong> on every mutating endpoint</li>
+      <li><strong>TOTP MFA</strong> with recovery codes</li>
+      <li><strong>Failed-login lockout</strong> with exponential backoff</li>
+      <li><strong>Editorial sidebar nav</strong> with role-filtered links</li>
+    </ul>
+  </div>
+
+  <div class="release">
+    <div class="release-date">February 2026</div>
+    <h2>RO intake + service polish</h2>
+    <h3>Added</h3>
+    <ul>
+      <li><strong>PBS/Tekion-style RO intake</strong> — fuel level, key tag, appointment source, transportation type, insurance/warranty claim, deductible</li>
+      <li><strong>Technician view</strong> — desktop queue with line-level punch, hold-parts/hold-tech/hold-auth states</li>
+      <li><strong>Service appointments calendar</strong> with capacity awareness</li>
+    </ul>
+  </div>
+
+  <p style="margin-top:48px;color:#71717A;font-size:13px;text-align:center">
+    Older releases are documented in our <a style="color:#52525B;text-decoration:underline" href="https://docs.unifiedgarage.com">docs</a>.
+  </p>
+</main>
+
+<footer>
+  &copy; 2026 UnifiedGarage Inc.
+  <a href="/">Home</a>
+  <a href="/terms">Terms</a>
+  <a href="/privacy">Privacy</a>
+  <a href="/security">Security</a>
+</footer>
+</body>
+</html>

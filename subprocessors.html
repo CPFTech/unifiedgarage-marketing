@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Subprocessors — UnifiedGarage</title>
+<meta name="description" content="The third-party services UnifiedGarage uses to run the platform — what each one does, where it stores data, and what data we send."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFB800'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%231A1A1A'%3EU%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;color:#1A1A1A;background:#FAFAFA;-webkit-font-smoothing:antialiased;line-height:1.6}
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:1px solid #F4F4F5;z-index:50}
+  .nav-inner{max-width:880px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .nav-logo{font-size:15px;font-weight:800;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;text-decoration:none;color:#1A1A1A}
+  .nav-logo-tile{width:24px;height:24px;background:#1A1A1A;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:#FFB800;font-size:12px;font-weight:800}
+  .nav-links{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:500}
+  .nav-links a{color:#52525B;text-decoration:none}
+  .nav-links a:hover{color:#1A1A1A}
+  main{max-width:880px;margin:0 auto;padding:120px 24px 80px}
+  .eyebrow{font-size:12px;font-weight:600;color:#52525B;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+  h1{font-size:clamp(36px,5vw,44px);font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:14px}
+  .lede{font-size:17px;color:#52525B;margin-bottom:36px}
+  .updated{font-size:13px;color:#71717A;margin-bottom:24px}
+  table{width:100%;border-collapse:collapse;margin-bottom:32px;background:#FFFFFF;border:1px solid #E4E4E7;border-radius:10px;overflow:hidden}
+  th,td{padding:14px 16px;text-align:left;font-size:14px;vertical-align:top}
+  th{background:#F4F4F5;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:0.06em;color:#52525B}
+  td{border-top:1px solid #F4F4F5}
+  td strong{font-weight:600}
+  td a{color:#1A1A1A;font-weight:500;text-decoration:underline}
+  h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-top:36px;margin-bottom:12px}
+  p{font-size:15px;color:#1A1A1A;margin-bottom:14px}
+  a.inline{color:#1A1A1A;font-weight:500;text-decoration:underline}
+  footer{padding:48px 24px;background:#FFFFFF;border-top:1px solid #F4F4F5;text-align:center;font-size:13px;color:#71717A}
+  footer a{color:#52525B;text-decoration:none;margin:0 10px}
+  @media(max-width:680px){
+    table,thead,tbody,th,td,tr{display:block}
+    th{display:none}
+    td{padding:8px 16px;border:none}
+    td:first-child{padding-top:16px;font-weight:700}
+    tr{border-top:1px solid #F4F4F5;padding:8px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-tile">U</span>
+      UnifiedGarage
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="https://app.unifiedgarage.com/login">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">Trust &amp; security</div>
+  <h1>Subprocessors.</h1>
+  <p class="updated">Last updated: April 30, 2026.</p>
+  <p class="lede">UnifiedGarage uses third-party services to run the platform. Below is the full list — what each one does, where data lives, and what we send. We notify customers in advance of any change to this list.</p>
+
+  <h2>Core infrastructure</h2>
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Purpose</th><th>Data</th><th>Region</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Supabase</strong> (<a href="https://supabase.com">supabase.com</a>)</td>
+        <td>Managed PostgreSQL database</td>
+        <td>All dealership data: customers, deals, ROs, parts, accounting</td>
+        <td>us-east-1 (AWS)</td>
+      </tr>
+      <tr>
+        <td><strong>Railway</strong> (<a href="https://railway.app">railway.app</a>)</td>
+        <td>Backend application hosting</td>
+        <td>Application logs (no PII), in-flight requests</td>
+        <td>us-east</td>
+      </tr>
+      <tr>
+        <td><strong>Vercel</strong> (<a href="https://vercel.com">vercel.com</a>)</td>
+        <td>Front-end hosting + CDN</td>
+        <td>Static assets, edge cache</td>
+        <td>Global edge</td>
+      </tr>
+      <tr>
+        <td><strong>Cloudflare R2</strong> (<a href="https://www.cloudflare.com/products/r2/">cloudflare.com</a>)</td>
+        <td>Object storage</td>
+        <td>Vehicle photos, document attachments, signed PDFs</td>
+        <td>Global edge with us-east primary</td>
+      </tr>
+      <tr>
+        <td><strong>Cloudflare DNS</strong></td>
+        <td>DNS resolution + DDoS protection</td>
+        <td>DNS queries (anonymized)</td>
+        <td>Global anycast</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Communications</h2>
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Purpose</th><th>Data</th><th>Region</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Resend</strong> (<a href="https://resend.com">resend.com</a>)</td>
+        <td>Transactional email (invitations, password resets, customer notifications, receipts)</td>
+        <td>Recipient email, message body</td>
+        <td>us-east-1 (AWS)</td>
+      </tr>
+      <tr>
+        <td><strong>Twilio</strong> (<a href="https://twilio.com">twilio.com</a>) <em>— optional</em></td>
+        <td>SMS notifications (inspection approvals, appointment reminders) when enabled by the dealership</td>
+        <td>Recipient phone number, message body</td>
+        <td>us-east-1</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Operations &amp; observability</h2>
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Purpose</th><th>Data</th><th>Region</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Sentry</strong> (<a href="https://sentry.io">sentry.io</a>)</td>
+        <td>Error tracking</td>
+        <td>Stack traces, PII-scrubbed request context</td>
+        <td>us-east</td>
+      </tr>
+      <tr>
+        <td><strong>PostHog</strong> (<a href="https://posthog.com">posthog.com</a>)</td>
+        <td>Product analytics (anonymous, opt-in)</td>
+        <td>Aggregated usage events; no PII</td>
+        <td>us-east</td>
+      </tr>
+      <tr>
+        <td><strong>GitHub</strong> (<a href="https://github.com">github.com</a>)</td>
+        <td>Source code, dependency scanning, CI</td>
+        <td>Source code only — no customer data</td>
+        <td>us-east</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Payment &amp; billing</h2>
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Purpose</th><th>Data</th><th>Region</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Stripe</strong> (<a href="https://stripe.com">stripe.com</a>)</td>
+        <td>Subscription billing for UnifiedGarage license</td>
+        <td>Dealership billing contact, payment method (handled by Stripe directly — we never see card numbers)</td>
+        <td>us-east-1</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Optional dealer-configured integrations</h2>
+  <p>The following integrations are off by default. They activate only when the dealership opts in — for example, by entering an API key in Settings.</p>
+  <table>
+    <thead>
+      <tr><th>Provider</th><th>Purpose</th><th>Activates when…</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>QuickBooks Online</strong> (Intuit)</td>
+        <td>Accounting bridge — pushes journal entries to QBO</td>
+        <td>Dealer connects QBO via OAuth in Settings → Integrations</td>
+      </tr>
+      <tr>
+        <td><strong>Black Book / Canadian Black Book</strong></td>
+        <td>Vehicle valuation lookup for trade-in appraisals</td>
+        <td>Dealer enters API credentials in Settings → Integrations</td>
+      </tr>
+      <tr>
+        <td><strong>Dealertrack / RouteOne</strong> (Cox Automotive)</td>
+        <td>Credit application submission to lenders</td>
+        <td>Dealer connects via OAuth in F&amp;I → Lender setup</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Notification of changes</h2>
+  <p>If we add, remove, or replace a subprocessor, we update this page and email the dealership&apos;s primary admin contact at least 30 days in advance. To subscribe to subprocessor change notifications even if you&apos;re not a customer, email <a class="inline" href="mailto:privacy@unifiedgarage.com">privacy@unifiedgarage.com</a>.</p>
+
+  <p style="margin-top:48px;color:#71717A;font-size:13px">
+    Questions? <a class="inline" href="mailto:privacy@unifiedgarage.com">privacy@unifiedgarage.com</a>.
+  </p>
+</main>
+
+<footer>
+  &copy; 2026 UnifiedGarage Inc.
+  <a href="/">Home</a>
+  <a href="/terms">Terms</a>
+  <a href="/privacy">Privacy</a>
+  <a href="/security">Security</a>
+</footer>
+</body>
+</html>

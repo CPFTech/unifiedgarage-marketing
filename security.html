@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Security — UnifiedGarage</title>
+<meta name="description" content="How UnifiedGarage protects dealership data: encryption, access controls, hosting, backups, and our disclosure policy."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFB800'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%231A1A1A'%3EU%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;color:#1A1A1A;background:#FAFAFA;-webkit-font-smoothing:antialiased;line-height:1.6}
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:1px solid #F4F4F5;z-index:50}
+  .nav-inner{max-width:880px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .nav-logo{font-size:15px;font-weight:800;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;text-decoration:none;color:#1A1A1A}
+  .nav-logo-tile{width:24px;height:24px;background:#1A1A1A;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:#FFB800;font-size:12px;font-weight:800}
+  .nav-links{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:500}
+  .nav-links a{color:#52525B;text-decoration:none}
+  .nav-links a:hover{color:#1A1A1A}
+  main{max-width:760px;margin:0 auto;padding:120px 24px 80px}
+  .eyebrow{font-size:12px;font-weight:600;color:#52525B;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+  h1{font-size:clamp(36px,5vw,44px);font-weight:800;letter-spacing:-0.04em;line-height:1.1;margin-bottom:14px}
+  .lede{font-size:17px;color:#52525B;margin-bottom:48px}
+  h2{font-size:22px;font-weight:700;letter-spacing:-0.02em;margin-top:36px;margin-bottom:12px}
+  h3{font-size:16px;font-weight:600;margin-top:24px;margin-bottom:8px}
+  p{font-size:15px;color:#1A1A1A;margin-bottom:14px}
+  ul{margin-left:22px;margin-bottom:16px}
+  li{font-size:15px;margin-bottom:6px}
+  li strong{font-weight:600}
+  a.inline{color:#1A1A1A;font-weight:500;text-decoration:underline}
+  .updated{font-size:13px;color:#71717A;margin-bottom:24px}
+  footer{padding:48px 24px;background:#FFFFFF;border-top:1px solid #F4F4F5;text-align:center;font-size:13px;color:#71717A}
+  footer a{color:#52525B;text-decoration:none;margin:0 10px}
+  footer a:hover{color:#1A1A1A}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-tile">U</span>
+      UnifiedGarage
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="https://app.unifiedgarage.com/login">Sign in</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">Trust &amp; security</div>
+  <h1>How we protect your dealership data.</h1>
+  <p class="updated">Last updated: April 30, 2026.</p>
+  <p class="lede">UnifiedGarage handles customer PII, deal financials, and service histories — exactly the kind of data that breaks a dealership&apos;s reputation if it leaks. We treat the basics seriously and document them here. If you want to verify any of this on your own, our security disclosure email is at the bottom of this page.</p>
+
+  <h2>Data encryption</h2>
+  <ul>
+    <li><strong>In transit</strong>: every connection uses TLS 1.2+ with HSTS enforced. We don&apos;t accept unencrypted traffic.</li>
+    <li><strong>At rest</strong>: PostgreSQL data sits behind Supabase&apos;s AES-256 encryption. Object storage (vehicle photos, document attachments) on Cloudflare R2 uses AES-256 at rest.</li>
+    <li><strong>Backups</strong>: encrypted with the same keys as the live database, retained for 30 days at point-in-time recovery granularity.</li>
+  </ul>
+
+  <h2>Authentication &amp; access</h2>
+  <ul>
+    <li><strong>Passwords</strong> hashed with bcrypt (cost factor 12). Plaintext passwords never touch our database.</li>
+    <li><strong>Multi-factor authentication</strong> (TOTP / RFC 6238) is supported for every user, required for admin roles by default.</li>
+    <li><strong>Session tokens</strong> signed with rotating secrets, refresh tokens stored in httpOnly cookies (not localStorage).</li>
+    <li><strong>Failed-login lockout</strong> with exponential backoff. After 5 failed attempts the account is locked for 15 minutes; subsequent failures escalate.</li>
+    <li><strong>CSRF protection</strong> via double-submit cookie pattern on every mutating endpoint.</li>
+    <li><strong>Role-based access control</strong>: 9 roles (super-admin, dealer-admin, manager, sales rep, F&amp;I manager, service advisor, technician, parts clerk, accounting) each with a published permission matrix. The backend enforces the same rules the UI shows.</li>
+  </ul>
+
+  <h2>Tenant isolation</h2>
+  <p>Every row in our database carries a <code>dealershipId</code>. Every query is scoped by it at the service layer. Database-level row-level security (RLS) policies provide a second guard so a code mistake can&apos;t cross dealership boundaries silently. We test this with multi-tenant fixtures on every release.</p>
+
+  <h2>Hosting &amp; infrastructure</h2>
+  <ul>
+    <li><strong>Application servers</strong>: Railway, region us-east. Container-based with rolling deploys.</li>
+    <li><strong>Database</strong>: Supabase (managed PostgreSQL on AWS), region us-east-1.</li>
+    <li><strong>Object storage</strong>: Cloudflare R2 with custom domain.</li>
+    <li><strong>Front-end</strong>: Vercel, edge-distributed for low-latency loads.</li>
+    <li><strong>DNS &amp; CDN</strong>: Cloudflare.</li>
+  </ul>
+
+  <h2>Backups &amp; disaster recovery</h2>
+  <ul>
+    <li><strong>Database backups</strong>: continuous WAL archival via Supabase, with point-in-time recovery to any second within the last 30 days.</li>
+    <li><strong>Object storage</strong>: R2 has 11 nines of durability with multi-region replication.</li>
+    <li><strong>Recovery objective</strong>: RPO &lt; 5 minutes, RTO &lt; 1 hour for full database restore.</li>
+    <li><strong>Disaster runbook</strong> rehearsed quarterly.</li>
+  </ul>
+
+  <h2>Logging &amp; monitoring</h2>
+  <ul>
+    <li><strong>Application logs</strong> retained 90 days, structured (JSON), no PII or passwords.</li>
+    <li><strong>Audit logs</strong> for admin actions (user role changes, settings edits, data exports) retained indefinitely.</li>
+    <li><strong>Error tracking</strong> via Sentry; PII is scrubbed before transmission.</li>
+    <li><strong>Uptime monitoring</strong> on every public endpoint with paged alerts.</li>
+  </ul>
+
+  <h2>Patching &amp; vulnerability management</h2>
+  <ul>
+    <li>Dependencies scanned daily via GitHub Dependabot; security patches applied within 7 days for high-severity, 30 days for medium.</li>
+    <li>OS-level patches happen via Railway&apos;s base image refresh (typically weekly).</li>
+    <li>Code reviewed before merge; CI runs lint, type-check, unit tests, and Playwright e2e on every pull request.</li>
+  </ul>
+
+  <h2>Compliance posture</h2>
+  <p>UnifiedGarage is not yet SOC 2 certified — we&apos;re a small team and the audit cost is steep. We&apos;re building toward it on the same principles that the audit checks. PIPEDA (Canadian privacy law) compliance is documented in our <a class="inline" href="/privacy">privacy policy</a>; if your dealership requires GDPR-shaped disclosures we&apos;re happy to provide them on request.</p>
+
+  <h2>Security disclosure</h2>
+  <p>Found a vulnerability? Email <a class="inline" href="mailto:security@unifiedgarage.com">security@unifiedgarage.com</a>. We respond within 1 business day, work with you on a fix timeline, and credit responsible disclosure publicly if you want.</p>
+
+  <p style="margin-top:48px;color:#71717A;font-size:13px">
+    Have a more specific question? <a class="inline" href="mailto:hello@unifiedgarage.com">hello@unifiedgarage.com</a>.
+  </p>
+</main>
+
+<footer>
+  &copy; 2026 UnifiedGarage Inc.
+  <a href="/">Home</a>
+  <a href="/terms">Terms</a>
+  <a href="/privacy">Privacy</a>
+  <a href="/subprocessors">Subprocessors</a>
+</footer>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Resources — UnifiedGarage</title>
+<meta name="description" content="Buyer's guides, comparisons, playbooks, and the savings calculator. Everything we'd tell you on a sales call, written down."/>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFB800'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%231A1A1A'%3EU%3C/text%3E%3C/svg%3E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+  :root{
+    --bg:#FAFAFA;--bg-pure:#FFFFFF;--text:#1A1A1A;--text-mute:#52525B;
+    --text-dim:#71717A;--accent:#FFB800;--border:#E4E4E7;--border-lt:#F4F4F5;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(--bg);-webkit-font-smoothing:antialiased;line-height:1.55}
+  a{color:inherit}
+  nav{position:fixed;top:0;left:0;right:0;background:rgba(255,255,255,0.85);backdrop-filter:blur(10px);border-bottom:1px solid var(--border-lt);z-index:50}
+  .nav-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 24px}
+  .nav-logo{font-size:15px;font-weight:800;letter-spacing:-0.02em;display:flex;align-items:center;gap:8px;text-decoration:none;color:var(--text)}
+  .nav-logo-tile{width:24px;height:24px;background:var(--text);border-radius:6px;display:inline-flex;align-items:center;justify-content:center;color:var(--accent);font-size:12px;font-weight:800}
+  .nav-links{display:flex;gap:24px;align-items:center;font-size:13px;font-weight:500}
+  .nav-links a{color:var(--text-mute);text-decoration:none}
+  .nav-links a:hover{color:var(--text)}
+  .btn{display:inline-flex;align-items:center;padding:8px 14px;border-radius:7px;font-size:13px;font-weight:600;text-decoration:none;transition:all .2s}
+  .btn-primary{background:var(--accent);color:var(--text)}
+  .btn-primary:hover{background:#E5A600}
+  main{max-width:880px;margin:0 auto;padding:120px 24px 80px}
+  .eyebrow{font-size:12px;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:14px}
+  h1{font-size:clamp(36px,5vw,48px);font-weight:800;letter-spacing:-0.04em;line-height:1.05;margin-bottom:14px}
+  h1 span{color:var(--text-dim);font-weight:400}
+  .lede{font-size:17px;color:var(--text-mute);margin-bottom:48px;max-width:640px}
+  article{background:var(--bg-pure);border:1px solid var(--border);border-radius:12px;padding:32px;margin-bottom:18px;scroll-margin-top:80px}
+  article header{margin-bottom:18px}
+  article .tag{display:inline-block;font-size:10px;font-weight:700;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:10px}
+  article h2{font-size:24px;font-weight:700;letter-spacing:-0.02em;line-height:1.2;margin-bottom:8px}
+  article .read-time{font-size:13px;color:var(--text-dim)}
+  article p{font-size:15px;color:var(--text);margin-bottom:14px}
+  article p.sub{color:var(--text-mute);font-size:14px}
+  article h3{font-size:16px;font-weight:700;margin-top:22px;margin-bottom:8px;letter-spacing:-0.01em}
+  article ul{margin-left:18px;margin-bottom:14px}
+  article li{font-size:15px;margin-bottom:6px;color:var(--text)}
+  article li strong{font-weight:600}
+  article .stub{display:flex;align-items:center;gap:10px;background:#FFFBEB;border:1px solid #FDE68A;border-radius:8px;padding:14px;margin-top:18px;font-size:13px;color:#854D0E}
+  article .stub a{color:var(--text);font-weight:600}
+  .calc{background:linear-gradient(180deg,#FFFBEB,#FFF) ;border:1px solid #FDE68A;border-radius:12px;padding:32px;margin-bottom:18px}
+  .calc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:18px 0}
+  .calc-input{display:flex;flex-direction:column;gap:6px}
+  .calc-input label{font-size:12px;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.06em}
+  .calc-input input{padding:10px 12px;border:1px solid var(--border);border-radius:8px;font-size:14px;font-family:inherit;font-weight:600;background:white}
+  .calc-input input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(255,184,0,0.15)}
+  .calc-result{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)}
+  .calc-result-tile{background:white;border:1px solid var(--border);border-radius:10px;padding:14px}
+  .calc-result-label{font-size:11px;font-weight:600;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:4px}
+  .calc-result-value{font-size:22px;font-weight:800;letter-spacing:-0.02em;font-variant-numeric:tabular-nums}
+  .calc-result-value.savings{color:#16A34A}
+  .toc{background:var(--bg-pure);border:1px solid var(--border);border-radius:12px;padding:22px 26px;margin-bottom:28px}
+  .toc-label{font-size:11px;font-weight:700;color:var(--text-mute);text-transform:uppercase;letter-spacing:0.12em;margin-bottom:12px}
+  .toc ol{margin:0;padding-left:18px;font-size:14px}
+  .toc li{margin-bottom:6px}
+  .toc a{color:var(--text);text-decoration:none;font-weight:500}
+  .toc a:hover{color:var(--accent)}
+  footer{padding:48px 24px;background:var(--bg-pure);border-top:1px solid var(--border-lt);text-align:center;font-size:13px;color:var(--text-dim)}
+  footer a{color:var(--text-mute);text-decoration:none;margin:0 10px}
+  footer a:hover{color:var(--text)}
+  @media(max-width:768px){
+    main{padding-top:90px}
+    article{padding:24px}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">
+      <span class="nav-logo-tile">U</span>
+      UnifiedGarage
+    </a>
+    <div class="nav-links">
+      <a href="/#features">Features</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="https://app.unifiedgarage.com/login">Sign in</a>
+      <a href="https://app.unifiedgarage.com/signup" class="btn btn-primary">Start free trial</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <div class="eyebrow">Resources</div>
+  <h1>Buyer&apos;s guides, comparisons,<br/><span>and the savings calculator.</span></h1>
+  <p class="lede">Everything we&apos;d tell you on a sales call, written down. No email gate, no demo request.</p>
+
+  <div class="toc">
+    <div class="toc-label">On this page</div>
+    <ol>
+      <li><a href="#savings-calculator">The savings calculator (how much are seven tools costing you?)</a></li>
+      <li><a href="#dms-buyers-guide">The complete buyer&apos;s guide to dealer management software</a></li>
+      <li><a href="#vs-pbs">UnifiedGarage vs PBS</a></li>
+      <li><a href="#vs-tekion">UnifiedGarage vs Tekion</a></li>
+      <li><a href="#vs-cdk">UnifiedGarage vs CDK</a></li>
+      <li><a href="#switch-in-a-week">How to switch DMS in under a week</a></li>
+      <li><a href="#for-service-managers">For service managers: the morning DOC</a></li>
+      <li><a href="#for-dealer-groups">For dealer groups: running three rooftops or thirty</a></li>
+    </ol>
+  </div>
+
+  <!-- ── Savings calculator ──────────────────────────────── -->
+  <article id="savings-calculator">
+    <header>
+      <span class="tag">Interactive tool</span>
+      <h2>How much are seven tools costing you?</h2>
+      <span class="read-time">~2 min · live calculator below</span>
+    </header>
+    <p>Most franchise dealers run a stack of seven specialist tools — DMS, desking, F&amp;I menu, technician worklist, parts catalog, CRM, and an accounting bridge. Each has its own license, its own seat charges, its own onboarding bill. Plug your numbers in and see what consolidating to one platform would save you.</p>
+
+    <div class="calc">
+      <div class="calc-grid">
+        <div class="calc-input">
+          <label for="dmsSpend">DMS / month</label>
+          <input id="dmsSpend" type="number" min="0" step="50" value="2200" oninput="recalc()"/>
+        </div>
+        <div class="calc-input">
+          <label for="deskSpend">Desking / month</label>
+          <input id="deskSpend" type="number" min="0" step="50" value="450" oninput="recalc()"/>
+        </div>
+        <div class="calc-input">
+          <label for="fiSpend">F&amp;I menu / month</label>
+          <input id="fiSpend" type="number" min="0" step="50" value="350" oninput="recalc()"/>
+        </div>
+        <div class="calc-input">
+          <label for="serviceSpend">Service / tech worklist</label>
+          <input id="serviceSpend" type="number" min="0" step="50" value="400" oninput="recalc()"/>
+        </div>
+        <div class="calc-input">
+          <label for="partsSpend">Parts catalog / month</label>
+          <input id="partsSpend" type="number" min="0" step="50" value="250" oninput="recalc()"/>
+        </div>
+        <div class="calc-input">
+          <label for="crmSpend">CRM / month</label>
+          <input id="crmSpend" type="number" min="0" step="50" value="600" oninput="recalc()"/>
+        </div>
+        <div class="calc-input">
+          <label for="acctSpend">Accounting bridge / month</label>
+          <input id="acctSpend" type="number" min="0" step="50" value="300" oninput="recalc()"/>
+        </div>
+        <div class="calc-input">
+          <label for="rooftops">Rooftops</label>
+          <input id="rooftops" type="number" min="1" step="1" value="1" oninput="recalc()"/>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <div class="calc-result-tile">
+          <div class="calc-result-label">Current monthly</div>
+          <div class="calc-result-value" id="currentMonthly">—</div>
+        </div>
+        <div class="calc-result-tile">
+          <div class="calc-result-label">UnifiedGarage monthly</div>
+          <div class="calc-result-value" id="ugMonthly">—</div>
+        </div>
+        <div class="calc-result-tile">
+          <div class="calc-result-label">Annual savings</div>
+          <div class="calc-result-value savings" id="annualSavings">—</div>
+        </div>
+      </div>
+    </div>
+    <p class="sub">UnifiedGarage pricing: $2,499 CAD/month per single rooftop, $1,799/rooftop for groups of 3+. Calculator uses single-rooftop pricing × rooftop count for groups under 3, group pricing otherwise. Real numbers will vary with onboarding terms; <a href="mailto:hello@unifiedgarage.com" style="color:var(--text)">talk to us</a> for a quote.</p>
+  </article>
+
+  <!-- ── DMS buyer's guide ─────────────────────────────── -->
+  <article id="dms-buyers-guide">
+    <header>
+      <span class="tag">Guide</span>
+      <h2>The complete buyer&apos;s guide to dealer management software</h2>
+      <span class="read-time">~12 min read</span>
+    </header>
+    <p>A DMS is the operating system of a dealership. The good ones quietly run service, sales, parts, and accounting in concert; the bad ones bury staff in clicks and spreadsheets. Here&apos;s how to evaluate one without sitting through five demos.</p>
+
+    <h3>What a real DMS does</h3>
+    <ul>
+      <li><strong>Service writes ROs end-to-end</strong> — appointment, intake, technician dispatch, parts pull, customer approval, invoicing, accounting.</li>
+      <li><strong>Sales desks deals</strong> — worksheet with trade equity, fees, taxes, F&amp;I products, financing.</li>
+      <li><strong>Parts watches stock</strong> — POs, vendor management, integration with the catalog.</li>
+      <li><strong>F&amp;I closes</strong> — product menu, commission engine, lender integrations.</li>
+      <li><strong>Accounting books it</strong> — auto-generated journal entries, GL, daily close, AR/AP.</li>
+      <li><strong>The dealer principal sees everything</strong> — DOC reports, productivity by tech and advisor, deals funded MTD/YTD.</li>
+    </ul>
+
+    <h3>The seven questions to ask any DMS vendor</h3>
+    <ol style="margin-left:18px;font-size:15px">
+      <li>Does it handle service AND sales AND F&amp;I, or just one?</li>
+      <li>What&apos;s the per-month, per-rooftop cost — published?</li>
+      <li>Multi-rooftop in the standard plan, or behind enterprise sales?</li>
+      <li>How many seat licenses? (Watch for "unlimited" with hidden caps.)</li>
+      <li>What&apos;s the data export plan if I leave?</li>
+      <li>What&apos;s the implementation timeline — and what&apos;s the cost?</li>
+      <li>Is the pricing on the website? (If not, why not?)</li>
+    </ol>
+
+    <h3>Red flags</h3>
+    <ul>
+      <li>Pricing requires a sales call</li>
+      <li>"Custom integrations" billed per-hour at $250+</li>
+      <li>No clean export format — you&apos;re trapped</li>
+      <li>Implementation runs months, not weeks</li>
+      <li>Each module has its own login and database</li>
+    </ul>
+
+    <p class="sub">More detail in the comparison articles below.</p>
+  </article>
+
+  <!-- ── vs PBS ──────────────────────────────────────────── -->
+  <article id="vs-pbs">
+    <header>
+      <span class="tag">Comparison</span>
+      <h2>UnifiedGarage vs PBS</h2>
+      <span class="read-time">~7 min read</span>
+    </header>
+    <p>PBS is the incumbent in Canadian dealerships — decades of history, deep dealer-group features, the gold standard for service writers. So when does it make sense to switch?</p>
+
+    <h3>Where PBS still wins</h3>
+    <ul>
+      <li><strong>Decades of edge cases</strong> — every weird OEM warranty form, every special compliance report, every regional tax quirk. PBS has likely seen it.</li>
+      <li><strong>Mature dealer-group reporting</strong> — large groups (10+ rooftops) have specialized PBS workflows that take time to replicate.</li>
+      <li><strong>Established lender integrations</strong> — Dealertrack and RouteOne plumbing has been mature for years.</li>
+    </ul>
+
+    <h3>Where UnifiedGarage takes the lead</h3>
+    <ul>
+      <li><strong>Modern UI</strong> — staff training drops from weeks to hours. New advisors are productive on day one.</li>
+      <li><strong>Transparent pricing</strong> — published rates, no per-feature add-ons.</li>
+      <li><strong>Single login, single database</strong> — no module-by-module sign-ins, no nightly batch sync gaps.</li>
+      <li><strong>Unified service + sales + F&amp;I</strong> — a customer&apos;s service history shows on their deal page; their trade-in shows on the worksheet automatically.</li>
+      <li><strong>Customer-facing surfaces by default</strong> — MPI approvals via SMS, public trade requests, online service booking.</li>
+      <li><strong>Implementation in days, not months</strong> — most dealers desk their first real deal within seven days of signup.</li>
+    </ul>
+
+    <h3>Honest take</h3>
+    <p>If you&apos;re a 30-rooftop group with a finely tuned PBS workflow and an in-house IT team that knows it inside out, the switching cost may not pencil out. If you&apos;re running 1-10 rooftops and PBS feels like a 1995 ERP with a 2010 skin, UnifiedGarage will feel like a different decade.</p>
+  </article>
+
+  <!-- ── vs Tekion ──────────────────────────────────────── -->
+  <article id="vs-tekion">
+    <header>
+      <span class="tag">Comparison</span>
+      <h2>UnifiedGarage vs Tekion</h2>
+      <span class="read-time">~6 min read</span>
+    </header>
+    <p>Tekion is the cloud-native challenger — well-funded, ambitious, with strong product polish. We&apos;re in the same lane, but we draw different lines.</p>
+
+    <h3>Where we agree</h3>
+    <ul>
+      <li>Cloud-native is non-negotiable</li>
+      <li>Single platform beats best-of-breed silos</li>
+      <li>UI quality matters as much as feature breadth</li>
+      <li>API-first means you can integrate anywhere</li>
+    </ul>
+
+    <h3>Where we differ</h3>
+    <ul>
+      <li><strong>Pricing transparency</strong> — Tekion&apos;s pricing varies by negotiation. UnifiedGarage publishes rates.</li>
+      <li><strong>Single-rooftop friendly</strong> — Tekion is optimized for OEM-scale rollouts. We make sense for one-shop independents and three-rooftop groups equally.</li>
+      <li><strong>Implementation speed</strong> — Tekion implementations run 3-6 months on average. We target days.</li>
+      <li><strong>Canadian-first</strong> — BC PST/GST, Quebec tax compliance, multi-province dealer groups, French-language UI on the roadmap.</li>
+      <li><strong>Smaller team, faster decisions</strong> — feature requests don&apos;t go through a committee.</li>
+    </ul>
+
+    <h3>Honest take</h3>
+    <p>If you&apos;re a 50-rooftop OEM-aligned group with full-time IT staff and budget for a multi-quarter implementation, Tekion is a fair option. For everyone smaller — independent franchise dealers, used-car groups, multi-brand groups under 25 rooftops — UnifiedGarage will get you live faster, at a price that doesn&apos;t require a six-month negotiation.</p>
+  </article>
+
+  <!-- ── vs CDK ──────────────────────────────────────────── -->
+  <article id="vs-cdk">
+    <header>
+      <span class="tag">Comparison</span>
+      <h2>UnifiedGarage vs CDK</h2>
+      <span class="read-time">~5 min read</span>
+    </header>
+    <p>CDK Global is the largest DMS provider in North America by installed base, but the experience hasn&apos;t aged. If you&apos;re feeling the pinch, here&apos;s how we differ.</p>
+
+    <h3>What CDK still does well</h3>
+    <ul>
+      <li>Universal dealer-group support and OEM connections</li>
+      <li>Established compliance + reporting infrastructure</li>
+      <li>Massive installed base means industry knowledge transfers easily</li>
+    </ul>
+
+    <h3>Where UnifiedGarage takes the lead</h3>
+    <ul>
+      <li><strong>UI from this decade</strong> — green-screen-flavored CDK feels like a different planet</li>
+      <li><strong>One platform, one data model</strong> — CDK&apos;s service / sales / F&amp;I modules don&apos;t share a database in the way ours do</li>
+      <li><strong>Pricing without the negotiation</strong></li>
+      <li><strong>Customer-facing tools built in</strong> — MPI approvals, public trade requests, showroom TV</li>
+      <li><strong>Switching cost is days, not quarters</strong></li>
+    </ul>
+
+    <h3>Honest take</h3>
+    <p>CDK works because it has worked for 30 years. If your dealership runs on it because it&apos;s always run on it, and the staff has worked around the rough edges so long they don&apos;t notice anymore, the switch isn&apos;t mandatory. If onboarding new staff has gotten harder and harder, CDK is part of the reason — and you have an option now.</p>
+  </article>
+
+  <!-- ── Switch in a week ─────────────────────────────── -->
+  <article id="switch-in-a-week">
+    <header>
+      <span class="tag">Playbook</span>
+      <h2>How to switch DMS in under a week</h2>
+      <span class="read-time">~9 min read</span>
+    </header>
+    <p>The switching narrative most DMS vendors push is "this will take three to six months." It doesn&apos;t. Here&apos;s the day-by-day plan we&apos;ve used with real dealerships.</p>
+
+    <h3>Day 0 — Friday afternoon, pre-cutover week</h3>
+    <ul>
+      <li>Sign up for UnifiedGarage trial — sandbox is live in minutes</li>
+      <li>Export your inventory CSV from the current DMS — start there because it&apos;s lowest risk</li>
+      <li>Import inventory into UnifiedGarage sandbox; flag any mismatched fields</li>
+      <li>Set up dealership profile, branding, tax profiles, fees</li>
+    </ul>
+
+    <h3>Days 1-2 — Parallel run begins</h3>
+    <ul>
+      <li>Service advisors enter today&apos;s ROs into both systems for a day. Yes, double entry. Yes, briefly.</li>
+      <li>Compare the two outputs — find the 3-5 things that don&apos;t match, fix them in UnifiedGarage</li>
+      <li>Sales reps shadow-write today&apos;s deals on the new worksheet</li>
+    </ul>
+
+    <h3>Days 3-4 — Cutover decision</h3>
+    <ul>
+      <li>By now you know whether the new system handles your workflow. If yes, schedule cutover for Saturday.</li>
+      <li>Final data export from the old system (customer history, open deals, open ROs, parts inventory)</li>
+      <li>Map any custom fields, accept the few things that just don&apos;t map cleanly</li>
+    </ul>
+
+    <h3>Day 5 (Saturday) — The cutover</h3>
+    <ul>
+      <li>Customer balances and open ROs imported into UnifiedGarage</li>
+      <li>Old DMS goes read-only — no more writes</li>
+      <li>Phone tree forwards updated to UnifiedGarage&apos;s booking surface</li>
+      <li>UnifiedGarage on-call team available all weekend</li>
+    </ul>
+
+    <h3>Day 6-7 (Mon-Tue) — Live</h3>
+    <ul>
+      <li>Service drive opens on UnifiedGarage</li>
+      <li>Showroom desks deals on the new worksheet</li>
+      <li>Old system stays read-only for 90 days as a reference, then we shut it off</li>
+    </ul>
+
+    <p>The reason this works: there is no &quot;committee&quot; on our side. The CEO writes code. When you find something that doesn&apos;t fit your workflow, the fix usually ships before Monday.</p>
+  </article>
+
+  <!-- ── For service managers ─────────────────────────────── -->
+  <article id="for-service-managers">
+    <header>
+      <span class="tag">For service managers</span>
+      <h2>The morning DOC and the metrics that matter</h2>
+      <span class="read-time">~8 min read</span>
+    </header>
+    <p>Daily Operating Control is the report every dealer principal opens first thing in the morning. If you&apos;re a service manager, here&apos;s what to look at on UnifiedGarage&apos;s DOC dashboard before the bay doors open — and what to ignore.</p>
+
+    <h3>The numbers that actually move the needle</h3>
+    <ul>
+      <li><strong>ROs opened today</strong> — leading indicator of the day&apos;s revenue</li>
+      <li><strong>ROs closed today</strong> — invoiced &amp; ready for cashier; this is real money</li>
+      <li><strong>Labour hours sold vs hours billed</strong> — your tech efficiency in one ratio</li>
+      <li><strong>Parts margin %</strong> — drops below 30%? You&apos;re overpaying suppliers or under-pricing parts</li>
+      <li><strong>WIP open ROs and value</strong> — how much work is mid-flight? Anything over 5 days needs a phone call</li>
+      <li><strong>Declined-work follow-ups due</strong> — every day you don&apos;t call back is revenue evaporating</li>
+    </ul>
+
+    <h3>Per-tech roll-up</h3>
+    <p>UnifiedGarage tracks flag rate (sold hours / clock hours), productivity %, and proficiency % per technician. The morning report shows who&apos;s above and below target. Look for techs whose flag rate dropped 10+ points week-over-week — usually a parts wait, a hold-tech issue, or a personal situation you can address.</p>
+
+    <h3>Per-advisor roll-up</h3>
+    <p>ROs written, hours per RO, parts $/RO, customer-pay vs total mix. The advisor with high hours/RO and low parts/RO is leaving money on the table on the parts side; the advisor with high parts/RO and low hours/RO might be over-promising.</p>
+
+    <h3>What to ignore</h3>
+    <ul>
+      <li>Daily revenue swings under 10% — noise, not signal</li>
+      <li>Single-day technician dips — wait three days before you have a conversation</li>
+      <li>Customer pay rate shifts of 1-2% — not actionable</li>
+    </ul>
+  </article>
+
+  <!-- ── For dealer groups ────────────────────────────────── -->
+  <article id="for-dealer-groups">
+    <header>
+      <span class="tag">For dealer groups</span>
+      <h2>Running three rooftops or thirty</h2>
+      <span class="read-time">~7 min read</span>
+    </header>
+    <p>Multi-rooftop dealer groups have specific needs that DMS vendors often hide behind enterprise pricing. UnifiedGarage builds these in from the start.</p>
+
+    <h3>What the group dashboard shows</h3>
+    <ul>
+      <li><strong>Cross-rooftop inventory</strong> — search a VIN across every store, see who has it, share a public link with a customer</li>
+      <li><strong>Per-rooftop cycle time</strong> — recon days, RO turn time, deal close time, side by side</li>
+      <li><strong>Vendor performance ranked by store</strong> — see which rooftops your problem suppliers haunt</li>
+      <li><strong>Aggregated DOC</strong> — group-wide ROs opened, deals funded, parts margin in one view</li>
+    </ul>
+
+    <h3>Role scoping</h3>
+    <p>Users are scoped per rooftop by default. A service advisor at the Kelowna store sees only Kelowna&apos;s service queue. Group-level admins (you, the GM) see everything. Cross-store roles like a regional service manager get explicit multi-rooftop access without being a group admin.</p>
+
+    <h3>Group pricing</h3>
+    <p>$1,799 CAD/month per rooftop, starting at three rooftops — not behind a sales call, not on a per-feature add-on schedule. The math works out cleanly; if you have 5 stores at $2,499 single-rooftop pricing, the group plan saves $42K/year.</p>
+
+    <h3>Implementation strategy</h3>
+    <p>We don&apos;t recommend cutting over all rooftops at once. Pick one as the pilot, run it for a month, then onboard the rest in 2-3 store batches. The full group is usually live within 90 days, with no shop ever down for more than a weekend.</p>
+  </article>
+
+  <p style="text-align:center;color:var(--text-mute);font-size:14px;margin-top:36px">
+    Have a question we didn&apos;t cover here?
+    <a href="mailto:hello@unifiedgarage.com" style="color:var(--text);font-weight:600;text-decoration:underline">hello@unifiedgarage.com</a>
+  </p>
+</main>
+
+<footer>
+  &copy; 2026 UnifiedGarage Inc.
+  <a href="/">Home</a>
+  <a href="/#pricing">Pricing</a>
+  <a href="/terms">Terms</a>
+  <a href="/privacy">Privacy</a>
+</footer>
+
+<script>
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('en-CA');
+  }
+  function recalc() {
+    const ids = ['dmsSpend','deskSpend','fiSpend','serviceSpend','partsSpend','crmSpend','acctSpend','rooftops'];
+    const vals = ids.map(id => Number(document.getElementById(id).value || 0));
+    const [dms, desk, fi, service, parts, crm, acct, rooftops] = vals;
+    const current = (dms + desk + fi + service + parts + crm + acct) * Math.max(rooftops, 1);
+    // UG pricing: 2499/rooftop single, 1799/rooftop group of 3+
+    const ug = rooftops >= 3 ? 1799 * rooftops : 2499 * rooftops;
+    const annual = (current - ug) * 12;
+    document.getElementById('currentMonthly').textContent = fmt(current);
+    document.getElementById('ugMonthly').textContent = fmt(ug);
+    document.getElementById('annualSavings').textContent = annual >= 0
+      ? fmt(annual)
+      : '— UG runs higher at this stack';
+    document.getElementById('annualSavings').classList.toggle('savings', annual >= 0);
+  }
+  recalc();
+</script>
+</body>
+</html>
