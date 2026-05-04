@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>UnifiedGarage — One workspace for the whole dealership</title>
-<meta name="description" content="UnifiedGarage is the modern dealer management system. Replace seven disconnected tools with one quiet, fast, well-designed platform. Inventory, deals, F&I, service, CRM, and accounting — finally talking to each other."/>
+<title>UnifiedGarage — Run the whole dealership from one tab</title>
+<meta name="description" content="UnifiedGarage is the modern dealer management system. Service, sales, F&I, parts, accounting, CRM — one platform replacing your DMS, desking tool, F&I menu, technician worklist, and accounting bridge. Multi-rooftop from day one."/>
 <link rel="canonical" href="https://unifiedgarage.com/"/>
 
 <!-- Favicon -->
@@ -346,6 +346,21 @@
   .step h3{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
   .step p{font-size:13px;color:var(--text-mute);line-height:1.6}
 
+  /* ─── Pricing ─────────────────────────────────────────────────── */
+  .pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;max-width:760px;margin:0 auto}
+  .price-card{background:var(--bg-pure);border:1px solid var(--border);border-radius:12px;padding:28px;position:relative;display:flex;flex-direction:column}
+  .price-card.featured{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 12px 28px -16px rgba(255,184,0,0.4)}
+  .price-card.featured::before{content:'Most rooftops';position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:var(--text);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:3px 10px;border-radius:999px}
+  .price-name{font-size:13px;font-weight:600;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+  .price-amount{font-size:36px;font-weight:800;letter-spacing:-0.03em;line-height:1.1}
+  .price-amount sub{font-size:13px;font-weight:500;color:var(--text-mute);letter-spacing:0;vertical-align:baseline}
+  .price-meta{font-size:13px;color:var(--text-mute);margin-top:6px;margin-bottom:18px}
+  .price-features{list-style:none;padding:0;margin:0 0 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+  .price-features li{font-size:14px;color:var(--text);line-height:1.45;display:flex;align-items:flex-start;gap:8px}
+  .price-features li svg{flex-shrink:0;margin-top:2px;color:var(--accent)}
+  .price-card .btn{width:100%;justify-content:center}
+  .price-fineprint{text-align:center;color:var(--text-mute);font-size:13px;margin-top:24px}
+
   /* ─── Final CTA ───────────────────────────────────────────────── */
   .cta-section{padding:96px 24px;text-align:center;background:var(--text);color:var(--bg-pure);position:relative;overflow:hidden}
   .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(600px 300px at 50% 100%, rgba(255,184,0,0.15), transparent 70%);pointer-events:none}
@@ -396,8 +411,9 @@
     </a>
     <div class="nav-links">
       <a href="#features">Features</a>
-      <a href="#how">How it works</a>
       <a href="#roles">For your team</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#how">How it works</a>
       <a href="https://app.unifiedgarage.com/login">Sign in</a>
       <a href="https://app.unifiedgarage.com/signup" class="btn btn-primary">Start free trial</a>
     </div>
@@ -460,8 +476,8 @@
       <span class="hero-badge-dot"></span>
       Now in beta · early rooftops onboarding
     </div>
-    <h1>One workspace for the<br/><span>whole dealership.</span></h1>
-    <p class="lede">Replace seven disconnected tools with one quiet, fast, well-designed system. Inventory, deals, service, F&amp;I, and the showroom floor &mdash; finally talking to each other.</p>
+    <h1>Run the whole dealership<br/><span>from one tab.</span></h1>
+    <p class="lede">Service writes ROs, sales desks deals, parts watches stock, F&amp;I menus product &mdash; in one quiet, fast platform. Replace your DMS, desking tool, F&amp;I menu, technician worklist, parts catalog, and accounting bridge.</p>
     <div class="hero-ctas">
       <a href="https://app.unifiedgarage.com/signup" class="btn btn-dark btn-lg">Start free trial →</a>
       <a href="mailto:hello@unifiedgarage.com?subject=UnifiedGarage%20Demo%20Request" class="btn btn-ghost btn-lg">Book a demo</a>
@@ -469,11 +485,11 @@
     <div class="hero-trust" aria-label="Trust highlights">
       <span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        14-day free trial
+        Free for 60 days
       </span>
       <span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-        No setup fee
+        No credit card required
       </span>
       <span>
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -784,6 +800,52 @@
         <p>Run both systems for a week, then cut over. We're on-call for the first weekend so nothing drops. Most dealers desk their first real UnifiedGarage deal within seven days of signup.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="section" id="pricing" style="background:var(--bg)">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-eyebrow">Pricing</div>
+      <h2>Per rooftop. <span>Predictable.</span></h2>
+      <p>One price covers every department, every user, every workflow. Multi-rooftop dealer groups pay less per store from day one — not behind enterprise sales calls.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-name">Single Rooftop</div>
+        <div class="price-amount">$2,499<sub> CAD/month</sub></div>
+        <div class="price-meta">Per dealership · unlimited users</div>
+        <ul class="price-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Service, sales, F&amp;I, parts, accounting</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Customer-facing inspection approvals</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Daily operating control + productivity reports</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>F&amp;I product menu &amp; commission engine</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Standard support, weekday business hours</li>
+        </ul>
+        <a href="https://app.unifiedgarage.com/signup" class="btn btn-dark btn-lg">Start free trial →</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-name">Group</div>
+        <div class="price-amount">$1,799<sub> CAD/month per rooftop</sub></div>
+        <div class="price-meta">3+ rooftops · everything in Single</div>
+        <ul class="price-features">
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Cross-rooftop inventory + customer search</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Group-level dashboard &amp; rooftop comparisons</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Showroom TV mode &amp; public storefront</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Priority support &amp; custom onboarding</li>
+          <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>Dedicated implementation lead</li>
+        </ul>
+        <a href="mailto:hello@unifiedgarage.com?subject=UnifiedGarage%20Group%20Pricing" class="btn btn-primary btn-lg">Talk to sales →</a>
+      </div>
+
+    </div>
+    <p class="price-fineprint">
+      <strong>Free for 60 days.</strong> No credit card required.
+      Enterprise pricing for 10+ rooftops &mdash; <a href="mailto:hello@unifiedgarage.com" style="color:var(--text);text-decoration:underline">hello@unifiedgarage.com</a>.
+    </p>
   </div>
 </section>
 
