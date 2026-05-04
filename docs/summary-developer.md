@@ -1,4 +1,4 @@
-# UnifiedGarage — Technical Brief
+# UnifiedGarage - Technical Brief
 
 A modern Dealer Management System built as a single multi-tenant SaaS. Replaces the legacy stack most dealers carry today (Reynolds & Reynolds, CDK Global, Dealertrack) plus a pile of bolt-ons (separate F&I menu, separate desking tool, separate appraisal form, etc.) with one platform that actually talks to itself.
 
@@ -40,7 +40,7 @@ Leads → Deals (worksheet + desking) → F&I (menu selling + e-sign) → Funded
 Vehicle CRUD with photos, VIN decode, market-based pricing, recon workflow (`LANDED` → `RECON` → `READY` → `SOLD`). Bulk operations for status / pricing / archive. Aging alerts.
 
 ### Service
-Repair orders with PBS/Tekion-style intake fields: `fuelLevelIn`, `keyTag`, `appointmentSource` enum, `transportation` enum, `insuranceClaim`, `deductibleAmount`. Per-line job types (`CUSTOMER_PAY` / `WARRANTY` / `INTERNAL` / `FLEET`), per-line status codes (`A` Active / `B` Billed / `C` Complete / `HP` Hold-Parts / `HT` Hold-Tech / `HA` Hold-Approval). Time clock per (tech, line) session — productivity report compares actual hours vs flat-rate allowed hours. Multi-point inspections with photos, dispatch board, capacity by `ServiceBay`.
+Repair orders with PBS/Tekion-style intake fields: `fuelLevelIn`, `keyTag`, `appointmentSource` enum, `transportation` enum, `insuranceClaim`, `deductibleAmount`. Per-line job types (`CUSTOMER_PAY` / `WARRANTY` / `INTERNAL` / `FLEET`), per-line status codes (`A` Active / `B` Billed / `C` Complete / `HP` Hold-Parts / `HT` Hold-Tech / `HA` Hold-Approval). Time clock per (tech, line) session - productivity report compares actual hours vs flat-rate allowed hours. Multi-point inspections with photos, dispatch board, capacity by `ServiceBay`.
 
 ### Parts
 Stock + on-order + reorder points + min stock. Purchase orders with receiving workflow. Special orders linked to RO lines. Stock adjustments with reason codes (`PURCHASE`, `SALE`, `RETURN`, `DAMAGED`, `COUNT_CORRECTION`, `TRANSFER`).
@@ -64,7 +64,7 @@ Deal/inventory/service/parts/customer summaries, sales trend, inventory aging, s
 
 - App Router with a role-protected layout (`DmsLayout`) that waits for zustand-persisted auth to hydrate before rendering, to avoid bouncing signed-in users to `/login` on hard refresh.
 - Horizontal `TopNav` with 7 grouped entries (Dashboard, Sales, Inventory, Service, F&I, Insights, Settings) and dropdowns. Each entry hidden by role via `canAccess(role, navKey)`.
-- Shared `PageHeader` + `StatRow` components establish a consistent rhythm across 15+ primary screens — small uppercase amber eyebrow, big tracking-tight headline, prose lead, dark action button, thin-divider typographic stats. No icon-tile cards.
+- Shared `PageHeader` + `StatRow` components establish a consistent rhythm across 15+ primary screens - small uppercase amber eyebrow, big tracking-tight headline, prose lead, dark action button, thin-divider typographic stats. No icon-tile cards.
 - Axios instances per module (`inventoryApi`, `dealsApi`, etc.) with `withCredentials: true`, automatic refresh-on-401 with single-flight coalescing, and an X-CSRF-Token interceptor.
 
 ## Testing & CI
@@ -72,14 +72,14 @@ Deal/inventory/service/parts/customer summaries, sales trend, inventory aging, s
 - **Backend**: Jest with `notifications.spec.ts`, `je-generator.spec.ts` (22 tests across all 4 JE generators + balance invariant), `csrf.spec.ts` (26 tests on the guard). 57 passing.
 - **Frontend**: Vitest unit tests for `dealCalc`, `worksheetCalc`, `rolePolicy` plus a Playwright e2e smoke (login renders, protected route redirects).
 - **GitHub Actions** runs lint + typecheck + build + tests on every PR; the e2e job spins up Chromium and runs Playwright.
-- 100% TypeScript on both sides. `next.config.ts` has `ignoreBuildErrors: false` — the build fails on type errors so they can't ship silently.
+- 100% TypeScript on both sides. `next.config.ts` has `ignoreBuildErrors: false` - the build fails on type errors so they can't ship silently.
 
 ## Operations
 
 - Railway runs `prisma migrate deploy` before boot via `startup.js` (with a 2-minute timeout and a fail-soft fallback so a migration glitch can't 502 the whole API). Supabase pooler workaround handled via `directUrl` in `schema.prisma` (migrations use a direct :5432 connection; runtime uses pgBouncer at :6543).
 - Sentry releases tag with `RAILWAY_GIT_COMMIT_SHA` / `VERCEL_GIT_COMMIT_SHA` automatically so any error has a 1:1 link to the commit that introduced it.
 - `JOBS_DISABLED=1` env opts the pg-boss runtime out for local dev without a queue.
-- `npm run db:seed` runs the same seed logic prod uses (bcrypt admin user, default dealership) idempotently — safe to re-run anytime.
+- `npm run db:seed` runs the same seed logic prod uses (bcrypt admin user, default dealership) idempotently - safe to re-run anytime.
 
 ## Repo layout
 

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Subprocessors — UnifiedGarage</title>
-<meta name="description" content="The third-party services UnifiedGarage uses to run the platform — what each one does, where it stores data, and what data we send."/>
+<title>Subprocessors - UnifiedGarage</title>
+<meta name="description" content="The third-party services UnifiedGarage uses to run the platform - what each one does, where it stores data, and what data we send."/>
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23FFB800'/%3E%3Ctext x='32' y='44' font-family='Inter,system-ui,sans-serif' font-size='40' font-weight='800' text-anchor='middle' fill='%231A1A1A'%3EU%3C/text%3E%3C/svg%3E"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -64,7 +64,7 @@
   <div class="eyebrow">Trust &amp; security</div>
   <h1>Subprocessors.</h1>
   <p class="updated">Last updated: April 30, 2026.</p>
-  <p class="lede">UnifiedGarage uses third-party services to run the platform. Below is the full list — what each one does, where data lives, and what we send. We notify customers in advance of any change to this list.</p>
+  <p class="lede">UnifiedGarage uses third-party services to run the platform. Below is the full list - what each one does, where data lives, and what we send. We notify customers in advance of any change to this list.</p>
 
   <h2>Core infrastructure</h2>
   <table>
@@ -118,7 +118,7 @@
         <td>us-east-1 (AWS)</td>
       </tr>
       <tr>
-        <td><strong>Twilio</strong> (<a href="https://twilio.com">twilio.com</a>) <em>— optional</em></td>
+        <td><strong>Twilio</strong> (<a href="https://twilio.com">twilio.com</a>) <em>- optional</em></td>
         <td>SMS notifications (inspection approvals, appointment reminders) when enabled by the dealership</td>
         <td>Recipient phone number, message body</td>
         <td>us-east-1</td>
@@ -147,7 +147,7 @@
       <tr>
         <td><strong>GitHub</strong> (<a href="https://github.com">github.com</a>)</td>
         <td>Source code, dependency scanning, CI</td>
-        <td>Source code only — no customer data</td>
+        <td>Source code only - no customer data</td>
         <td>us-east</td>
       </tr>
     </tbody>
@@ -162,14 +162,14 @@
       <tr>
         <td><strong>Stripe</strong> (<a href="https://stripe.com">stripe.com</a>)</td>
         <td>Subscription billing for UnifiedGarage license</td>
-        <td>Dealership billing contact, payment method (handled by Stripe directly — we never see card numbers)</td>
+        <td>Dealership billing contact, payment method (handled by Stripe directly - we never see card numbers)</td>
         <td>us-east-1</td>
       </tr>
     </tbody>
   </table>
 
   <h2>Optional dealer-configured integrations</h2>
-  <p>The following integrations are off by default. They activate only when the dealership opts in — for example, by entering an API key in Settings.</p>
+  <p>The following integrations are off by default. They activate only when the dealership opts in - for example, by entering an API key in Settings.</p>
   <table>
     <thead>
       <tr><th>Provider</th><th>Purpose</th><th>Activates when…</th></tr>
@@ -177,7 +177,7 @@
     <tbody>
       <tr>
         <td><strong>QuickBooks Online</strong> (Intuit)</td>
-        <td>Accounting bridge — pushes journal entries to QBO</td>
+        <td>Accounting bridge - pushes journal entries to QBO</td>
         <td>Dealer connects QBO via OAuth in Settings → Integrations</td>
       </tr>
       <tr>
